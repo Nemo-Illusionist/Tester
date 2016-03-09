@@ -41,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.God_mode = new System.Windows.Forms.Label();
+            this.ID_TextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label6
@@ -72,14 +74,14 @@
             this.Test_CB.Location = new System.Drawing.Point(143, 200);
             this.Test_CB.Name = "Test_CB";
             this.Test_CB.Size = new System.Drawing.Size(357, 21);
-            this.Test_CB.TabIndex = 4;
+            this.Test_CB.TabIndex = 5;
             // 
             // StartButton
             // 
             this.StartButton.Location = new System.Drawing.Point(64, 238);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(389, 61);
-            this.StartButton.TabIndex = 18;
+            this.StartButton.TabIndex = 6;
             this.StartButton.Text = "Начать тест!";
             this.StartButton.UseVisualStyleBackColor = true;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
@@ -91,7 +93,7 @@
             this.Subject_CB.Location = new System.Drawing.Point(143, 172);
             this.Subject_CB.Name = "Subject_CB";
             this.Subject_CB.Size = new System.Drawing.Size(357, 21);
-            this.Subject_CB.TabIndex = 3;
+            this.Subject_CB.TabIndex = 4;
             this.Subject_CB.Tag = "";
             this.Subject_CB.SelectedIndexChanged += new System.EventHandler(this.Subject_CB_SelectedIndexChanged);
             // 
@@ -111,12 +113,12 @@
             this.EI_CB.Name = "EI_CB";
             this.EI_CB.Size = new System.Drawing.Size(357, 21);
             this.EI_CB.Sorted = true;
-            this.EI_CB.TabIndex = 2;
+            this.EI_CB.TabIndex = 3;
             // 
             // FIO_TextBox
             // 
             this.FIO_TextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FIO_TextBox.Location = new System.Drawing.Point(143, 119);
+            this.FIO_TextBox.Location = new System.Drawing.Point(143, 93);
             this.FIO_TextBox.Name = "FIO_TextBox";
             this.FIO_TextBox.Size = new System.Drawing.Size(357, 20);
             this.FIO_TextBox.TabIndex = 1;
@@ -145,7 +147,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(12, 122);
+            this.label2.Location = new System.Drawing.Point(12, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 12;
@@ -156,7 +158,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 33);
+            this.label1.Location = new System.Drawing.Point(12, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(488, 33);
             this.label1.TabIndex = 11;
@@ -175,6 +177,26 @@
             this.God_mode.Text = "God\' mode";
             this.God_mode.Click += new System.EventHandler(this.God_mode_Click);
             // 
+            // ID_TextBox
+            // 
+            this.ID_TextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ID_TextBox.Location = new System.Drawing.Point(143, 119);
+            this.ID_TextBox.MaxLength = 16;
+            this.ID_TextBox.Name = "ID_TextBox";
+            this.ID_TextBox.Size = new System.Drawing.Size(357, 20);
+            this.ID_TextBox.TabIndex = 2;
+            this.ID_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ID_TextBox_KeyPress);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(12, 115);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(114, 26);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Идентификационный\r\nномер";
+            // 
             // RegisterForm
             // 
             this.AcceptButton = this.StartButton;
@@ -182,6 +204,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TESTER.Properties.Resources._65;
             this.ClientSize = new System.Drawing.Size(513, 336);
+            this.Controls.Add(this.ID_TextBox);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.God_mode);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -222,5 +246,7 @@
         public System.Windows.Forms.ComboBox Subject_CB;
         public System.Windows.Forms.ComboBox EI_CB;
         public System.Windows.Forms.TextBox FIO_TextBox;
+        public System.Windows.Forms.TextBox ID_TextBox;
+        private System.Windows.Forms.Label label7;
     }
 }

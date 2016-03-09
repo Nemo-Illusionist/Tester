@@ -61,12 +61,11 @@ namespace TESTER
             if (AnsType.SelectedIndex != 2)
             {
                 question.Add(new Question(QuestionTB.Text, (int)PointCount.Value,
-                AnsType.SelectedIndex, CorrectAnswerList, AnswerList));
+                (int)AnsType.SelectedIndex, CorrectAnswerList, AnswerList));
             }
             else
             {
-                question.Add(new Question(QuestionTB.Text, (int)PointCount.Value,
-                AnsType.SelectedIndex, CorrectAnswerList));
+                question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, CorrectAnswerList));
             }
             QuestionTB.Text = "";
             CurQuest++;
@@ -89,6 +88,7 @@ namespace TESTER
             AnsCheck.Add(CH1);
         }
         #endregion
+
         #region SomethingChanged
         private void Combo_Box_Refresh()
         {
@@ -122,6 +122,7 @@ namespace TESTER
             Point3.Value = (decimal)Math.Round((int)PointMax.Value * 0.60, 0);
         }
         #endregion
+
         #region Fields
         void EnableFields()
         {
@@ -148,6 +149,7 @@ namespace TESTER
             TestNameTB.Text = "";
         }
         #endregion
+
         #region LoadOrClosing
         private void TestMaker_Load(object sender, EventArgs e)
         {
@@ -189,9 +191,10 @@ namespace TESTER
             AddAnswerButton_Click(null, null);
             k = true;
         }
+
         private void SerializeInDocument()
         {
-            XML_TEST XmlTest = new XML_TEST((int)QuestCount.Value, (int)PointMax.Value, (int)Point3.Value,
+            XML_TEST XmlTest = new XML_TEST((int)QuestCount.Value, (int)PointMax.Value, (int)Point3.Value, 
                 (int)Point4.Value, (int)Point5.Value, (int)AllTime.Value, question);
             XmlTest.Serialize(SubjectCB.Text, TestNameTB.Text);
         }

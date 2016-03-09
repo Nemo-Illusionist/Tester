@@ -14,8 +14,8 @@ namespace TESTER
             ResultForm = new ResultForm(this);
         }
 
-        //глобальные переменные
-        #region GlobalVariables
+        //Инициализация глобальных переменных
+#region GlobalVariables
         RegisterForm RegisterForm;
         ResultForm ResultForm;
         TextBox AnsTB;
@@ -35,9 +35,9 @@ namespace TESTER
         int type;
         public object sender { get; set; }
         public EventArgs e { get; set; }
-        #endregion
+#endregion
 
-        //загрузка формы
+        //Загрузка формы
         private void QuestionForm_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
@@ -47,12 +47,12 @@ namespace TESTER
             TestName.Text = RegisterForm.Test_CB.Text;
             XML_TEST XmlTest = new XML_TEST();
             XmlTest.DeSerialize(Subject.Text, TestName.Text);
-            question = XmlTest.question;
+            question = XmlTest.Questions;
             Get_Question();
         }
         
-        //создание вориантов заполнения ответов на тест в соответствии с типом вопроса
-        #region GetAnswerControls
+        //Создание вариантов заполнения ответов на тест, в соответствии с типом вопроса
+#region GetAnswerControls
         //тип "0" радиобатаны
         void GetRadioButtons(List<string> Answer)
         {
@@ -99,9 +99,9 @@ namespace TESTER
             QuestionGB.Controls.Add(AnsTB);
 
         }
-        #endregion
+#endregion
 
-        //заполнение теста
+        //Получение вопроса и ответов
         public void Get_Question()
         {   
             QuestionGB.Text = "Вопрос № " + (K + 1);
@@ -130,7 +130,8 @@ namespace TESTER
             K++;
         }
 
-        //считывание ответа
+
+//НАДО ДОРАБОТАТЬ...Считывание ответа пользователя
         private void PushButton_Click(object sender, EventArgs e)
         {
             switch (type)
@@ -159,6 +160,12 @@ namespace TESTER
                         AnswersList.Add(AnsTB.Text);
                         break;
                     }
+                /*default:
+                    {
+//......................ДОРАБОТАТЬ
+                        MessageBox.Show("НЕХУЙ БЫЛО ЛАЗИТЬ В XML", "Данная ошибка еще не обработана");
+                        break;
+                    }*/
             }
             CurrentAnswer = "";
             if (K == question.Count)
@@ -179,7 +186,7 @@ namespace TESTER
             Get_Question();
         }
 
-        //закрытие формы
+        //Случайное закрытие формы
         private void QuestionForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (K < question.Count && MessageBox.Show(@"Рекомендуется проходить тест до конца, иначе Ваши данные и предыдущие ответы не будут сохранены.\nВы действительно хотите прервать тест?",

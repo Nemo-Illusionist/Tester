@@ -16,7 +16,7 @@ namespace TESTER
         QuestionForm QuestionForm;
         TestMaker TestMaker;
 
-        //обновление списка предметов
+        //Обновление списка предметов
         public void SubjectCB_Refresh()
         {
             Subject_CB.Items.Clear();
@@ -27,7 +27,7 @@ namespace TESTER
             }
         }
 
-        //обновление списка тестов в выброном предмете
+        //Обновление списка тестов при выборе предмета
         private void Subject_CB_SelectedIndexChanged(object sender, EventArgs e)
         {
             Test_CB.Items.Clear();
@@ -47,7 +47,7 @@ namespace TESTER
             }
         }
 
-        //запуск теста
+        //Запуск теста
         private void StartButton_Click(object sender, EventArgs e)
         {
             if (FIO_TextBox.Text == "")
@@ -65,11 +65,11 @@ namespace TESTER
             QuestionForm.Show();
         }
 
-        //режим бога
+        //Режим Бога
         private void God_mode_Click(object sender, EventArgs e)
         {
             string s;
-            if (InputBox.InputPassword("Режим бога", "Введите пожалуйста пароль(God)", out s))
+            if (InputBox.InputPassword("Режим Бога", "Введите пожалуйста пароль(God)", out s))
             {
                 if (s.Equals("God"))
                 {
@@ -82,17 +82,23 @@ namespace TESTER
             }
         }
 
-        //загрузка формы
+        //Загрузка формы
         private void RegisterForm_Load(object sender, EventArgs e)
         {
             FIO_TextBox.Focus();
             SubjectCB_Refresh();
         }
 
-        //закрытие формы
+        //Закрытие формы
         private void RegisterForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        //Проверка ID на случай ввода иных символов, кроме цифры
+        private void ID_TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != 8) e.Handled = true;
         }
     }
 }

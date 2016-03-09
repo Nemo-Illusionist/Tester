@@ -91,6 +91,7 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
+            this.AnswersView.FullRowSelect = true;
             this.AnswersView.GridLines = true;
             this.AnswersView.Location = new System.Drawing.Point(392, 12);
             this.AnswersView.Name = "AnswersView";
