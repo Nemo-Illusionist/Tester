@@ -155,7 +155,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackgroundImage = global::TESTER.Properties.Resources.background;
+            this.BackgroundImage = global::TESTER.Properties.Resources._65;
             this.ClientSize = new System.Drawing.Size(784, 562);
             this.Controls.Add(this.QuestionGB);
             this.Controls.Add(this.TestName);
