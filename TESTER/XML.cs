@@ -29,8 +29,7 @@ namespace TESTER
         /// <param name="Point5">Винимальное количество баллов на 5</param>
         /// <param name="Time">Общее время на тест</param>
         /// <param name="question">Массив вопросов</param>
-        public XML_TEST(int QuantityQuestion, int MaxPoint, int Point3, int Point4, int Point5, int Time, List<Question> question)
-        {
+        public XML_TEST(int QuantityQuestion, int MaxPoint, int Point3, int Point4, int Point5, int Time, List<Question> question){
             this.QuantityQuestion = QuantityQuestion;
             this.MaxPoint = MaxPoint;
             this.Point3 = Point3;
@@ -45,13 +44,11 @@ namespace TESTER
         /// </summary>
         /// <param name="NameFolder">Имя папки</param>
         /// <param name="NameFile">Имя файла</param>
-        public void Serialize(string NameFolder, string NameFile)
-        {
+        public void Serialize(string NameFolder, string NameFile){
             Science = NameFolder;
             Theme = NameFile;
             int k = Directory.GetFiles(Environment.CurrentDirectory + "\\TEST\\" + NameFolder + "\\").Length + 1;
-            using (FileStream fs = new FileStream("TEST\\" + NameFolder + "\\" + k + ". "+ NameFile + ".xml", FileMode.OpenOrCreate))
-            {
+            using (FileStream fs = new FileStream("TEST\\" + NameFolder + "\\" + k + ". "+ NameFile + ".xml", FileMode.OpenOrCreate)){
                 formatter.Serialize(fs, this);
             }
         }
@@ -63,8 +60,7 @@ namespace TESTER
         /// <param name="NameFile">Имя файла</param>
         public void DeSerialize(string NameFolder, string NameFile)
         {
-            using (FileStream fs = new FileStream("TEST\\" + NameFolder + "\\" + NameFile + ".xml", FileMode.OpenOrCreate))
-            {
+            using (FileStream fs = new FileStream("TEST\\" + NameFolder + "\\" + NameFile + ".xml", FileMode.OpenOrCreate)){
                 XML_TEST Test = (XML_TEST)formatter.Deserialize(fs);
                 QuantityQuestion = Test.QuantityQuestion;
                 MaxPoint = Test.MaxPoint;
@@ -120,8 +116,7 @@ namespace TESTER
         /// </summary>
         public void Serialize(){
             //int k = Directory.GetFiles(Environment.CurrentDirectory + "\\UserTest\\").Length + 1;
-            using (FileStream fs = new FileStream("UserTest\\" + ID + "_" + Science + "_" + Theme +".xml", FileMode.OpenOrCreate))
-            {
+            using (FileStream fs = new FileStream("UserTest\\" + ID + "_" + Science + "_" + Theme +".xml", FileMode.OpenOrCreate)){
                 formatter.Serialize(fs, this);
             }
         }
@@ -130,10 +125,8 @@ namespace TESTER
         /// Десериализует объект типа XML с именем
         /// </summary>
         /// <param name="NameFile">Имя файла</param>
-        public void DeSerialize(string NameFile)
-        {
-            using (FileStream fs = new FileStream("UserTest\\" + NameFile + ".xml", FileMode.OpenOrCreate))
-            {
+        public void DeSerialize(string NameFile){
+            using (FileStream fs = new FileStream("UserTest\\" + NameFile + ".xml", FileMode.OpenOrCreate)){
                 XML_USER User = (XML_USER)formatter.Deserialize(fs);
                 ID = User.ID;
                 FIO = User.FIO;
@@ -168,8 +161,7 @@ namespace TESTER
         /// <param name="Type">Тип вопроса(0 - один ответ, 1 - несколько ответов)</param>
         /// <param name="TrueAnswer">Список правильных ответов</param>
         /// <param name="Answer">Список вариантов ответов</param>
-        public Question(string question, int Point, int Type, List<string> TrueAnswer, List<string> Answer)
-        {
+        public Question(string question, int Point, int Type, List<string> TrueAnswer, List<string> Answer){
             this.question = question;
             this.Point = Point;
             this.Type = Type;
@@ -183,8 +175,7 @@ namespace TESTER
         /// <param name="question">Вопрос </param> 
         /// <param name="Point">Количество баллов за вопрос</param>
         /// <param name="TrueAnswer">Список правельных ответов</param>
-        public Question(string question, int Point, List<string> TrueAnswer)
-        {
+        public Question(string question, int Point, List<string> TrueAnswer){
             this.question = question;
             this.Point = Point;
             this.Type = 2;

@@ -5,8 +5,7 @@ namespace TESTER
 {
     public partial class InputBox : Form
     {
-        public InputBox()
-        {
+        public InputBox(){
             InitializeComponent();
         }
         bool t; // Если была нажата кнопка Ok тогда t = true
@@ -16,8 +15,7 @@ namespace TESTER
         /// <param name="IBhead">заголовок формы</param>
         /// <param name="IBlabel">текст, который будет отображен в lable1</param>
         /// <param name="s">значение введенное в текстовое поле, вернется из метода</param>
-        public static bool Input(String IBhead, String IBlabel, out String s)
-        {
+        public static bool Input(String IBhead, String IBlabel, out String s){
             InputBox IBform = new InputBox(); // создаём форму
             IBform.Text = IBhead; // меняем текст заголовка формы
             IBform.label1.Text = IBlabel; // меняем текст метки
@@ -29,8 +27,7 @@ namespace TESTER
         /// <param name="IBhead">заголовок формы</param>
         /// <param name="IBlabel">текст, который будет отображен в lable1</param>
         /// <param name="s">значение введенное в текстовое поле, вернется из метода</param>
-        public static bool InputPassword(String IBhead, String IBlabel, out String s)
-        {
+        public static bool InputPassword(String IBhead, String IBlabel, out String s){
             InputBox IBform = new InputBox(); // создаём форму
             IBform.Text = IBhead; // меняем текст заголовка формы
             IBform.label1.Text = IBlabel; // меняем текст метки
@@ -40,16 +37,15 @@ namespace TESTER
             return IBform.t;
         }
 
-
-        private void Ok_Click(object sender, EventArgs e) // Ok
-        {
+        // Ok
+        private void Ok_Click(object sender, EventArgs e){ 
             temp = this.textBox1.Text;
             t = true;
             this.Close();
         }
 
-        private void Cancel_Click(object sender, EventArgs e) // Cancel
-        {
+        // Cancel
+        private void Cancel_Click(object sender, EventArgs e){ 
             t = false;
             this.Close();
         }

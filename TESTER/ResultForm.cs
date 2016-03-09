@@ -11,23 +11,20 @@ namespace TESTER
 {
     public partial class ResultForm : Form
     {
-        public ResultForm(QuestionForm Que1)
-        {
+        public ResultForm(QuestionForm Que1){
             InitializeComponent();
             QuestionForm = Que1;
         }
 
         QuestionForm QuestionForm;
 
-        private void ResultForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
+        private void ResultForm_FormClosing(object sender, FormClosingEventArgs e){
             this.Hide();
             RegisterForm RegisterForm = new RegisterForm();
             RegisterForm.Show();
         }
 
-        private void ResultForm_Load(object sender, EventArgs e)
-        {
+        private void ResultForm_Load(object sender, EventArgs e){
 
         }
     }

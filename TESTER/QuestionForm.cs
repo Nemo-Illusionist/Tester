@@ -19,8 +19,7 @@ namespace TESTER
         RegisterForm RegisterForm;
         ResultForm ResultForm;
         TextBox AnsTB;
-        Label QuestionLabel = new Label()
-        {
+        Label QuestionLabel = new Label(){
             Size = new Size(750, 80),
             Location = new Point(5, 15),
             Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right,
@@ -30,7 +29,7 @@ namespace TESTER
         List<CheckBox> AnsCB = new List<CheckBox>();
         List<Question> question;
         List<string> AnswersList = new List<string>();
-        string CurrentAnswer = "";
+        string CurrentAnswer;
         int K = 0;
         int type;
         public object sender { get; set; }
@@ -38,8 +37,7 @@ namespace TESTER
 #endregion
 
         //Загрузка формы
-        private void QuestionForm_Load(object sender, EventArgs e)
-        {
+        private void QuestionForm_Load(object sender, EventArgs e){
             this.WindowState = FormWindowState.Maximized;
             FIO.Text = RegisterForm.FIO_TextBox.Text;
             EI.Text = RegisterForm.EI_CB.Text;
@@ -54,13 +52,10 @@ namespace TESTER
         //Создание вариантов заполнения ответов на тест, в соответствии с типом вопроса
 #region GetAnswerControls
         //тип "0" радиобатаны
-        void GetRadioButtons(List<string> Answer)
-        {
+        void GetRadioButtons(List<string> Answer){
             AnsRB.Clear();
-            for (int i = 0; i < Answer.Count; i++)
-            {
-                AnsRB.Add(new RadioButton()
-                {
+            for (int i = 0; i < Answer.Count; i++){
+                AnsRB.Add(new RadioButton(){
                     Text = Answer[i],
                     Location = new Point(10, 100 + i * 30),
                     Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right,
@@ -71,13 +66,10 @@ namespace TESTER
         }
 
         //тип "1" чекбоксы
-        void GetCheckBoxes(List<string> Answer)
-        {
+        void GetCheckBoxes(List<string> Answer){
             AnsCB.Clear();
-            for (int i = 0; i < Answer.Count; i++)
-            {
-                AnsCB.Add(new CheckBox()
-                {
+            for (int i = 0; i < Answer.Count; i++){
+                AnsCB.Add(new CheckBox(){
                     Text = Answer[i],
                     Location = new Point(10, 100 + i * 30),
                     Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right,
@@ -90,8 +82,7 @@ namespace TESTER
         //тип "2" текстбокс
         void GetTextBox()
         {
-            AnsTB = new TextBox()
-            {
+            AnsTB = new TextBox(){
                 Size = new Size(QuestionGB.Size.Width - 10, 25),
                 Location = new Point(5, 100),
                 Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right
@@ -102,78 +93,68 @@ namespace TESTER
 #endregion
 
         //Получение вопроса и ответов
-        public void Get_Question()
-        {   
+        public void Get_Question(){   
             QuestionGB.Text = "Вопрос № " + (K + 1);
             QuestionLabel.Text = question[K].question;
             QuestionGB.Controls.Add(QuestionLabel);
             type = question[K].Type;
             List<string> Answer = question[K].Answer;
-            switch (type)
-            {
-                case 0:
-                    {
-                        GetRadioButtons(Answer);
-                        break;
-                    }
-                case 1:
-                    {
-                        GetCheckBoxes(Answer);
-                        break;
-                    }
-                default:
-                    {
-                        GetTextBox();
-                        break;
-                    }
+            switch (type){
+                case 0:{
+                    GetRadioButtons(Answer);
+                    break;
+                }
+                case 1:{
+                    GetCheckBoxes(Answer);
+                    break;
+                }
+                default:{
+                    GetTextBox();
+                    break;
+                }
             }
             K++;
         }
 
 
 //НАДО ДОРАБОТАТЬ...Считывание ответа пользователя
-        private void PushButton_Click(object sender, EventArgs e)
-        {
-            switch (type)
-            {
-                case 0:
-                    {
-                        foreach (var box in AnsRB)
-                        {
-                            if (box.Checked) CurrentAnswer += box.Text;
+        private void PushButton_Click(object sender, EventArgs e){
+            switch (type){
+                case 0:{
+                    foreach (var box in AnsRB){
+                        if (box.Checked) { 
+                            CurrentAnswer += box.Text; 
+                            break; 
                         }
-                        AnswersList.Add(CurrentAnswer);
-                        break;
                     }
-                case 1:
-                    {
-                        foreach (var box in AnsCB)
-                        {
-                            if (box.Checked) CurrentAnswer += box.Text;
-                            if (box != AnsCB[AnsCB.Count - 1]) CurrentAnswer += ", ";
+                    AnswersList.Add(CurrentAnswer);
+                    break;
+                }
+                case 1:{
+                    foreach (var box in AnsCB){
+                        if (box.Checked){
+                            CurrentAnswer += box.Text;
+                                if (box != AnsCB[AnsCB.Count - 1]) CurrentAnswer += ", ";
                         }
-                        AnswersList.Add(CurrentAnswer);
-                        break;
                     }
-                default:
-                    {
-                        AnswersList.Add(AnsTB.Text);
-                        break;
-                    }
-                /*default:
-                    {
+                    AnswersList.Add(CurrentAnswer);
+                    break;
+                }
+                default:{
+                    AnswersList.Add(AnsTB.Text);
+                    break;
+                }
+                /*default:{
 //......................ДОРАБОТАТЬ
                         MessageBox.Show("НЕХУЙ БЫЛО ЛАЗИТЬ В XML", "Данная ошибка еще не обработана");
                         break;
                     }*/
             }
             CurrentAnswer = "";
-            if (K == question.Count)
-            {
+            if (K == question.Count){
                 this.Dispose();
                 ResultForm.Show();
-                foreach (var answer in AnswersList)
-                {
+                foreach (var answer in AnswersList){
                     ListViewItem Item = new ListViewItem();
                     Item.Text = (ResultForm.AnswersView.Items.Count + 1).ToString();
                     Item.SubItems.Add(answer);
@@ -187,15 +168,13 @@ namespace TESTER
         }
 
         //Случайное закрытие формы
-        private void QuestionForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
+        private void QuestionForm_FormClosing(object sender, FormClosingEventArgs e){
             if (K < question.Count && MessageBox.Show(@"Рекомендуется проходить тест до конца, иначе Ваши данные и предыдущие ответы не будут сохранены.\nВы действительно хотите прервать тест?",
-                "Закрытие окна теста", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            { Application.Exit(); }
+                "Закрытие окна теста", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes){ 
+                Application.Exit(); 
+            }
             else e.Cancel = true;
         }
-
-
     }
 }
 

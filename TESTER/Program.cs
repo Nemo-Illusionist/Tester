@@ -12,8 +12,7 @@ namespace TESTER
         /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
-        static void Main()
-        {
+        static void Main(){
             if (Directory.Exists(Environment.CurrentDirectory + "\\TEST") == false)
                 Directory.CreateDirectory(Environment.CurrentDirectory + "\\TEST");
             if (Directory.Exists(Environment.CurrentDirectory + "\\UserTest") == false)
