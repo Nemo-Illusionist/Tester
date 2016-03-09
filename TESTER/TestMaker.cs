@@ -47,7 +47,10 @@ namespace TESTER
                 return;
             }
             foreach (var item in AnswerList){
-                if (item == "") MessageBox.Show("Обнаружен пустой вариант ответа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (item == ""){ 
+                    MessageBox.Show("Обнаружен пустой вариант ответа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
             RefreshAnswerFields();
             if (k == false)

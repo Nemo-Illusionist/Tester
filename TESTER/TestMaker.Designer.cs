@@ -299,6 +299,7 @@
             // QuestionTB
             // 
             this.QuestionTB.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.QuestionTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.QuestionTB.Location = new System.Drawing.Point(105, 10);
             this.QuestionTB.Name = "QuestionTB";
             this.QuestionTB.Size = new System.Drawing.Size(508, 20);
@@ -375,6 +376,7 @@
             // TestNameTB
             // 
             this.TestNameTB.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.TestNameTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TestNameTB.Location = new System.Drawing.Point(153, 36);
             this.TestNameTB.Name = "TestNameTB";
             this.TestNameTB.Size = new System.Drawing.Size(499, 20);

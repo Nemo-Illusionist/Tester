@@ -57,9 +57,10 @@
             // 
             this.TestName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TestName.BackColor = System.Drawing.Color.Transparent;
-            this.TestName.Location = new System.Drawing.Point(268, 79);
+            this.TestName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TestName.Location = new System.Drawing.Point(134, 79);
             this.TestName.Name = "TestName";
-            this.TestName.Size = new System.Drawing.Size(504, 13);
+            this.TestName.Size = new System.Drawing.Size(638, 13);
             this.TestName.TabIndex = 17;
             this.TestName.Text = " 1";
             this.TestName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -68,9 +69,10 @@
             // 
             this.Subject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Subject.BackColor = System.Drawing.Color.Transparent;
-            this.Subject.Location = new System.Drawing.Point(268, 56);
+            this.Subject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Subject.Location = new System.Drawing.Point(134, 56);
             this.Subject.Name = "Subject";
-            this.Subject.Size = new System.Drawing.Size(504, 13);
+            this.Subject.Size = new System.Drawing.Size(638, 13);
             this.Subject.TabIndex = 16;
             this.Subject.Text = " 1";
             this.Subject.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -79,9 +81,10 @@
             // 
             this.EI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EI.BackColor = System.Drawing.Color.Transparent;
-            this.EI.Location = new System.Drawing.Point(268, 32);
+            this.EI.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EI.Location = new System.Drawing.Point(134, 32);
             this.EI.Name = "EI";
-            this.EI.Size = new System.Drawing.Size(504, 13);
+            this.EI.Size = new System.Drawing.Size(638, 13);
             this.EI.TabIndex = 15;
             this.EI.Text = " 1";
             this.EI.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -90,9 +93,10 @@
             // 
             this.FIO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FIO.BackColor = System.Drawing.Color.Transparent;
-            this.FIO.Location = new System.Drawing.Point(268, 9);
+            this.FIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FIO.Location = new System.Drawing.Point(134, 9);
             this.FIO.Name = "FIO";
-            this.FIO.Size = new System.Drawing.Size(504, 13);
+            this.FIO.Size = new System.Drawing.Size(638, 13);
             this.FIO.TabIndex = 14;
             this.FIO.Text = " 1";
             this.FIO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

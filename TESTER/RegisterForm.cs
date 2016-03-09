@@ -52,6 +52,7 @@ namespace TESTER
                 return;
             }
             this.Hide();
+            QuestionForm.Text = "["+ID_TextBox.Text+"] "+Test_CB.Text;
             QuestionForm.Show();
         }
 
@@ -69,9 +70,6 @@ namespace TESTER
                 else
                     MessageBox.Show("Неверный пароль");
             }
-        }
-        private void God_mode_Click(object sender, EventArgs e){
-
         }
 
         //Загрузка формы
