@@ -40,6 +40,18 @@
             this.God_mode = new System.Windows.Forms.Label();
             this.ID_TextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.FileTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.ResultsTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.CheckUpdatesTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.GodModeTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ExitTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.ViewResultsTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowHelpTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label6
@@ -155,7 +167,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 22);
+            this.label1.Location = new System.Drawing.Point(13, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(488, 33);
             this.label1.TabIndex = 11;
@@ -194,6 +206,99 @@
             this.label7.TabIndex = 24;
             this.label7.Text = "Идентификационный\r\nномер";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileTSM,
+            this.ResultsTSM,
+            this.HelpTSM});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(513, 24);
+            this.menuStrip1.TabIndex = 25;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // FileTSM
+            // 
+            this.FileTSM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CheckUpdatesTSMI,
+            this.GodModeTSMI,
+            this.toolStripSeparator1,
+            this.ExitTSMI});
+            this.FileTSM.Name = "FileTSM";
+            this.FileTSM.Size = new System.Drawing.Size(48, 20);
+            this.FileTSM.Text = "Файл";
+            // 
+            // ResultsTSM
+            // 
+            this.ResultsTSM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ViewResultsTSMI});
+            this.ResultsTSM.Name = "ResultsTSM";
+            this.ResultsTSM.Size = new System.Drawing.Size(81, 20);
+            this.ResultsTSM.Text = "Результаты";
+            // 
+            // HelpTSM
+            // 
+            this.HelpTSM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ShowHelpTSMI,
+            this.AboutTSMI});
+            this.HelpTSM.Name = "HelpTSM";
+            this.HelpTSM.Size = new System.Drawing.Size(65, 20);
+            this.HelpTSM.Text = "Справка";
+            // 
+            // CheckUpdatesTSMI
+            // 
+            this.CheckUpdatesTSMI.Name = "CheckUpdatesTSMI";
+            this.CheckUpdatesTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.CheckUpdatesTSMI.Size = new System.Drawing.Size(347, 22);
+            this.CheckUpdatesTSMI.Text = "Проверить обновления тестов на сервере";
+            this.CheckUpdatesTSMI.Click += new System.EventHandler(this.CheckUpdatesTSMI_Click);
+            // 
+            // GodModeTSMI
+            // 
+            this.GodModeTSMI.Name = "GodModeTSMI";
+            this.GodModeTSMI.Size = new System.Drawing.Size(347, 22);
+            this.GodModeTSMI.Text = "Режим редактирования тестов";
+            this.GodModeTSMI.Click += new System.EventHandler(this.GodModeTSMI_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(344, 6);
+            // 
+            // ExitTSMI
+            // 
+            this.ExitTSMI.Name = "ExitTSMI";
+            this.ExitTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.ExitTSMI.Size = new System.Drawing.Size(347, 22);
+            this.ExitTSMI.Text = "Закрыть";
+            this.ExitTSMI.Click += new System.EventHandler(this.ExitTSMI_Click);
+            // 
+            // ViewResultsTSMI
+            // 
+            this.ViewResultsTSMI.Name = "ViewResultsTSMI";
+            this.ViewResultsTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.ViewResultsTSMI.Size = new System.Drawing.Size(276, 22);
+            this.ViewResultsTSMI.Text = "Посмотреть свои результаты";
+            this.ViewResultsTSMI.Click += new System.EventHandler(this.ViewResultsTSMI_Click);
+            // 
+            // ShowHelpTSMI
+            // 
+            this.ShowHelpTSMI.Name = "ShowHelpTSMI";
+            this.ShowHelpTSMI.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.ShowHelpTSMI.Size = new System.Drawing.Size(191, 22);
+            this.ShowHelpTSMI.Text = "Вызов справки";
+            this.ShowHelpTSMI.Click += new System.EventHandler(this.ShowHelpTSMI_Click);
+            // 
+            // AboutTSMI
+            // 
+            this.AboutTSMI.Name = "AboutTSMI";
+            this.AboutTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F1)));
+            this.AboutTSMI.Size = new System.Drawing.Size(191, 22);
+            this.AboutTSMI.Text = "О программе";
+            this.AboutTSMI.Click += new System.EventHandler(this.AboutTSMI_Click);
+            // 
             // RegisterForm
             // 
             this.AcceptButton = this.StartButton;
@@ -215,8 +320,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RegisterForm";
@@ -224,6 +331,8 @@
             this.Text = "Программа тестирования учащихся EduQual Test";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegisterForm_FormClosing);
             this.Load += new System.EventHandler(this.RegisterForm_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,5 +354,16 @@
         public System.Windows.Forms.TextBox FIO_TextBox;
         public System.Windows.Forms.TextBox ID_TextBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem FileTSM;
+        private System.Windows.Forms.ToolStripMenuItem CheckUpdatesTSMI;
+        private System.Windows.Forms.ToolStripMenuItem GodModeTSMI;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem ExitTSMI;
+        private System.Windows.Forms.ToolStripMenuItem ResultsTSM;
+        private System.Windows.Forms.ToolStripMenuItem ViewResultsTSMI;
+        private System.Windows.Forms.ToolStripMenuItem HelpTSM;
+        private System.Windows.Forms.ToolStripMenuItem ShowHelpTSMI;
+        private System.Windows.Forms.ToolStripMenuItem AboutTSMI;
     }
 }

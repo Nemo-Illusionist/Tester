@@ -47,7 +47,7 @@ namespace TESTER
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (EI_CB.SelectedIndex < 0 || Subject_CB.SelectedIndex < 0 || Test_CB.SelectedIndex < 0){
+            if (EI_CB.SelectedIndex < 0 || Subject_CB.SelectedIndex < 0 || Test_CB.SelectedIndex < 0 || ID_TextBox.Text.Length<1){
                 MessageBox.Show("Вы заполнили не все поля.", "Обнаружена ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -56,10 +56,12 @@ namespace TESTER
         }
 
         //Режим Бога
-        private void God_mode_Click(object sender, EventArgs e){
+        private void GodModeTSMI_Click(object sender, EventArgs e){
             string s;
-            if (InputBox.InputPassword("Режим Бога", "Введите пожалуйста пароль(God)", out s)){
-                if (s.Equals("God")){
+            if (InputBox.InputPassword("Режим Бога", "Введите пожалуйста пароль(God)", out s))
+            {
+                if (s.Equals("God"))
+                {
                     TestMaker = new TestMaker(this);
                     TestMaker.Show();
                     this.Hide();
@@ -67,6 +69,9 @@ namespace TESTER
                 else
                     MessageBox.Show("Неверный пароль");
             }
+        }
+        private void God_mode_Click(object sender, EventArgs e){
+
         }
 
         //Загрузка формы
@@ -84,6 +89,35 @@ namespace TESTER
         private void ID_TextBox_KeyPress(object sender, KeyPressEventArgs e){
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != 8) 
                 e.Handled = true;
+        }
+
+        //Справка
+        private void ShowHelpTSMI_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Скоро появится", "Справка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        //О программе
+        private void AboutTSMI_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Скоро появится", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        //Посмотреть свои результаты
+        private void ViewResultsTSMI_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Проверить апдейты тестов с сервера
+        private void CheckUpdatesTSMI_Click(object sender, EventArgs e)
+        {
+
+        }
+        //Меню "Закрыть"
+        private void ExitTSMI_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
