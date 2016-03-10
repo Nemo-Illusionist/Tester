@@ -71,7 +71,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Location = new System.Drawing.Point(11, 107);
+            this.label13.Location = new System.Drawing.Point(9, 107);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(103, 13);
             this.label13.TabIndex = 53;
@@ -171,9 +171,9 @@
             this.GoButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GoButton.BackColor = System.Drawing.SystemColors.Control;
-            this.GoButton.Location = new System.Drawing.Point(12, 134);
+            this.GoButton.Location = new System.Drawing.Point(11, 134);
             this.GoButton.Name = "GoButton";
-            this.GoButton.Size = new System.Drawing.Size(640, 23);
+            this.GoButton.Size = new System.Drawing.Size(641, 23);
             this.GoButton.TabIndex = 8;
             this.GoButton.Text = "Далее";
             this.GoButton.UseVisualStyleBackColor = false;
@@ -183,9 +183,9 @@
             // 
             this.AddAnswerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddAnswerButton.BackColor = System.Drawing.SystemColors.Control;
-            this.AddAnswerButton.Location = new System.Drawing.Point(10, 439);
+            this.AddAnswerButton.Location = new System.Drawing.Point(12, 439);
             this.AddAnswerButton.Name = "AddAnswerButton";
-            this.AddAnswerButton.Size = new System.Drawing.Size(315, 23);
+            this.AddAnswerButton.Size = new System.Drawing.Size(313, 23);
             this.AddAnswerButton.TabIndex = 12;
             this.AddAnswerButton.Text = "Добавить еще ответ";
             this.AddAnswerButton.UseVisualStyleBackColor = false;
@@ -197,7 +197,7 @@
             this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AddButton.BackColor = System.Drawing.SystemColors.Control;
-            this.AddButton.Location = new System.Drawing.Point(10, 472);
+            this.AddButton.Location = new System.Drawing.Point(12, 468);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(640, 23);
             this.AddButton.TabIndex = 14;
@@ -333,7 +333,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(11, 86);
+            this.label7.Location = new System.Drawing.Point(8, 86);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(139, 13);
             this.label7.TabIndex = 39;
@@ -378,7 +378,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(12, 65);
+            this.label6.Location = new System.Drawing.Point(9, 66);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(117, 13);
             this.label6.TabIndex = 36;
@@ -390,7 +390,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(12, 39);
+            this.label2.Location = new System.Drawing.Point(8, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 13);
             this.label2.TabIndex = 35;
@@ -402,7 +402,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Location = new System.Drawing.Point(8, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 13);
             this.label1.TabIndex = 34;

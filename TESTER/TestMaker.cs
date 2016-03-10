@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -13,7 +13,7 @@ namespace TESTER
             RegisterForm = FormRegister;
         }
 
-        //Инициализация глобальных переменных
+        //РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РіР»РѕР±Р°Р»СЊРЅС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
 #region GlobalVariables
         RegisterForm RegisterForm;
         List<TextBox> AnsList = new List<TextBox>();
@@ -27,12 +27,12 @@ namespace TESTER
 #endregion
 
 #region Buttons
-        //Событие кнопки Далее
+        //РЎРѕР±С‹С‚РёРµ РєРЅРѕРїРєРё Р”Р°Р»РµРµ
         private void GoButton_Click(object sender, EventArgs e){
-            if (SubjectCB.Text.Equals("") || SubjectCB.Text.Equals("Добавить...") || TestNameTB.Text.Equals("") || (int)PointMax.Value == 0 ||
+            if (SubjectCB.Text.Equals("") || SubjectCB.Text.Equals("Р”РѕР±Р°РІРёС‚СЊ...") || TestNameTB.Text.Equals("") || (int)PointMax.Value == 0 ||
                 (int)Point3.Value == 0 || (int)Point4.Value == 0 || (int)Point5.Value == 0){
-                MessageBox.Show("Убедитесь в том, что ВСЕ поля заполнены правильно.",
-                    "Обнаружена ошибка данных", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("РЈР±РµРґРёС‚РµСЃСЊ РІ С‚РѕРј, С‡С‚Рѕ Р’РЎР• РїРѕР»СЏ Р·Р°РїРѕР»РЅРµРЅС‹ РїСЂР°РІРёР»СЊРЅРѕ.",
+                    "РћР±РЅР°СЂСѓР¶РµРЅР° РѕС€РёР±РєР° РґР°РЅРЅС‹С…", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else{
                 PointCount.Value = decimal.Round(PointMax.Value / QuestCount.Value);
@@ -45,15 +45,15 @@ namespace TESTER
             }
         }
         
-        //Запись вопроса
+        //Р—Р°РїРёСЃСЊ РІРѕРїСЂРѕСЃР°
         private void AddButton_Click(object sender, EventArgs e){
             if (QuestionTB.Text == ""){
-                MessageBox.Show("Кажется, Вы забыли ввести текст вопроса", "Обнаружена ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("РљР°Р¶РµС‚СЃСЏ, Р’С‹ Р·Р°Р±С‹Р»Рё РІРІРµСЃС‚Рё С‚РµРєСЃС‚ РІРѕРїСЂРѕСЃР°", "РћР±РЅР°СЂСѓР¶РµРЅР° РѕС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             foreach (var item in AnswerList){
                 if (item == "") { 
-                    MessageBox.Show("Обнаружен пустой вариант ответа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("РћР±РЅР°СЂСѓР¶РµРЅ РїСѓСЃС‚РѕР№ РІР°СЂРёР°РЅС‚ РѕС‚РІРµС‚Р°", "РћС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             RefreshAnswerFields();
@@ -75,59 +75,61 @@ namespace TESTER
             CurQuest++;
             if (CurQuest > (int)QuestCount.Value - 1){
                 SerializeInDocument();
-                MessageBox.Show("Готово!");
+                MessageBox.Show("Р“РѕС‚РѕРІРѕ!");
                 DisableFields();
                 CurQuest = 0;
             }
         }
 
-        //Добовляет поле для ввода дополнительного ответа
+        //Р”РѕР±РѕРІР»СЏРµС‚ РїРѕР»Рµ РґР»СЏ РІРІРѕРґР° РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ РѕС‚РІРµС‚Р°
         public void AddAnswerButton_Click(object sender, EventArgs e){
             Dot = new Point(5, Dot.Y + 25);
             TextBox TB1 = new TextBox() { Size = new Size(500, 20), Location = Dot };
             Panel.Controls.Add(TB1);
             AnsList.Add(TB1);
-            CheckBox CH1 = new CheckBox() { Size = new Size(90, 17), Location = new Point(Dot.X + 520, Dot.Y), Text = "Правильный" };
+            CheckBox CH1 = new CheckBox() { Size = new Size(90, 17), Location = new Point(Dot.X + 520, Dot.Y), Text = "РџСЂР°РІРёР»СЊРЅС‹Р№" };
             Panel.Controls.Add(CH1);
             AnsCheck.Add(CH1);
         }
 
-//ДОРОБОТАТЬ...Удаление строки ввода
+        //РЈРґР°Р»РµРЅРёРµ СЃС‚СЂРѕРєРё РІРІРѕРґР°
         private void RemovAnswerButton_Click(object sender, EventArgs e){
             if (AnsList.Count >1){
                 Dot = new Point(5, Dot.Y - 25);
                 Panel.Controls.Remove(AnsList[AnsList.Count - 1]);
+                AnsList.Remove(AnsList[AnsList.Count - 1]);
                 Panel.Controls.Remove(AnsCheck[AnsCheck.Count - 1]);
+                AnsCheck.Remove(AnsCheck[AnsCheck.Count - 1]);
             }
         }
 #endregion
 
 #region SomethingChanged
-        //Обновление комбобокса предметов
+        //РћР±РЅРѕРІР»РµРЅРёРµ РєРѕРјР±РѕР±РѕРєСЃР° РїСЂРµРґРјРµС‚РѕРІ
         private void Combo_Box_Refresh(){
             SubjectCB.Items.Clear();
             string[] science = Directory.GetDirectories(Environment.CurrentDirectory + "\\TEST\\");
             for (int i = 0; i < science.Length; i++){
                 SubjectCB.Items.Add(science[i].Remove(0, (Environment.CurrentDirectory + "\\TEST\\").Length));
             }
-            SubjectCB.Items.Add("Добавить...");
+            SubjectCB.Items.Add("Р”РѕР±Р°РІРёС‚СЊ...");
         }
 
-        //Добовление нового придмета
+        //Р”РѕР±РѕРІР»РµРЅРёРµ РЅРѕРІРѕРіРѕ РїСЂРёРґРјРµС‚Р°
         private void SubjectCB_SelectedIndexChanged(object sender, EventArgs e){
-            if (SubjectCB.Text.Equals("Добавить...")){
+            if (SubjectCB.Text.Equals("Р”РѕР±Р°РІРёС‚СЊ...")){
                 string str;
-                if (InputBox.Input("Добавить", "Название предмета", out str))
+                if (InputBox.Input("Р”РѕР±Р°РІРёС‚СЊ", "РќР°Р·РІР°РЅРёРµ РїСЂРµРґРјРµС‚Р°", out str))
                     if (!Directory.Exists(Environment.CurrentDirectory + "\\TEST\\" + str + "\\")){
                         Directory.CreateDirectory(Environment.CurrentDirectory + "\\TEST\\" + str + "\\");
                         Combo_Box_Refresh();
                     }
                     else
-                        MessageBox.Show("Такой предмет уже существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("РўР°РєРѕР№ РїСЂРµРґРјРµС‚ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚", "РћС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        //Автоматическое разделение максимального коллчества баллов(5 - 90%, 4 - 75%, 3 - 60%)
+        //РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ СЂР°Р·РґРµР»РµРЅРёРµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ РєРѕР»Р»С‡РµСЃС‚РІР° Р±Р°Р»Р»РѕРІ(5 - 90%, 4 - 75%, 3 - 60%)
         private void PointMax_ValueChanged(object sender, EventArgs e){
             Point5.Value = (decimal)Math.Round((int)PointMax.Value * 0.9, 0);
             Point4.Value = (decimal)Math.Round((int)PointMax.Value * 0.75, 0);
@@ -137,7 +139,7 @@ namespace TESTER
 
 #region Fields
         
-        //Делаем неактивными неиспользуемые элементы и делаем видимым поле для ввода вопросов
+        //Р”РµР»Р°РµРј РЅРµР°РєС‚РёРІРЅС‹РјРё РЅРµРёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ СЌР»РµРјРµРЅС‚С‹ Рё РґРµР»Р°РµРј РІРёРґРёРјС‹Рј РїРѕР»Рµ РґР»СЏ РІРІРѕРґР° РІРѕРїСЂРѕСЃРѕРІ
         void EnableFields(){
             QuestCount.Enabled = AllTime.Enabled = PointMax.Enabled =
                 Point5.Enabled = Point4.Enabled = Point3.Enabled =
@@ -147,7 +149,7 @@ namespace TESTER
                 true;
         }
 
-        //Скрываем поле для ввода вопросов
+        //РЎРєСЂС‹РІР°РµРј РїРѕР»Рµ РґР»СЏ РІРІРѕРґР° РІРѕРїСЂРѕСЃРѕРІ
         void DisableFields(){
             foreach (var answer in AnsList){
                 Panel.Controls.Remove(answer);
@@ -175,7 +177,7 @@ namespace TESTER
         }
 #endregion
 
-        //Считыватель заполненых полей
+        //РЎС‡РёС‚С‹РІР°С‚РµР»СЊ Р·Р°РїРѕР»РЅРµРЅС‹С… РїРѕР»РµР№
         public void RefreshAnswerFields(){
             AnswerList = new List<string>();
             CorrectAnswerList = new List<string>();
@@ -187,8 +189,8 @@ namespace TESTER
                 }
             }
             if (CorrectAnswerList.Count == 0 && AnsList.Count != 0){
-                MessageBox.Show("Хотя бы один из предложенных Вами вариантов ответов должен быть отмечен как правильный",
-                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("РҐРѕС‚СЏ Р±С‹ РѕРґРёРЅ РёР· РїСЂРµРґР»РѕР¶РµРЅРЅС‹С… Р’Р°РјРё РІР°СЂРёР°РЅС‚РѕРІ РѕС‚РІРµС‚РѕРІ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РѕС‚РјРµС‡РµРЅ РєР°Рє РїСЂР°РІРёР»СЊРЅС‹Р№",
+                    "РћС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 k = false;
                 return;
             }
@@ -203,7 +205,7 @@ namespace TESTER
             k = true;
         }
 
-        //Сеарелизует тест в XML документ
+        //РЎРµР°СЂРµР»РёР·СѓРµС‚ С‚РµСЃС‚ РІ XML РґРѕРєСѓРјРµРЅС‚
         private void SerializeInDocument(){
             XML_TEST XmlTest = new XML_TEST((int)QuestCount.Value, (int)PointMax.Value, (int)Point3.Value, 
                 (int)Point4.Value, (int)Point5.Value, (int)AllTime.Value, question);
