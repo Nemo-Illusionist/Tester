@@ -13,6 +13,8 @@ namespace TESTER
             RegisterForm = FormRegister;
         }
 
+        //Инициализация глобальных переменных
+#region GlobalVariables
         RegisterForm RegisterForm;
         List<TextBox> AnsList = new List<TextBox>();
         List<CheckBox> AnsCheck = new List<CheckBox>();
@@ -22,8 +24,10 @@ namespace TESTER
         Int16 CurQuest = 0;
         public List<Question> question;
         Boolean k = false;
+#endregion
 
 #region Buttons
+        //Событие кнопки Далее
         private void GoButton_Click(object sender, EventArgs e){
             if (SubjectCB.Text.Equals("") || SubjectCB.Text.Equals("Добавить...") || TestNameTB.Text.Equals("") || (int)PointMax.Value == 0 ||
                 (int)Point3.Value == 0 || (int)Point4.Value == 0 || (int)Point5.Value == 0){
@@ -41,24 +45,32 @@ namespace TESTER
             }
         }
         
+        //Запись вопроса
         private void AddButton_Click(object sender, EventArgs e){
             if (QuestionTB.Text == ""){
                 MessageBox.Show("Кажется, Вы забыли ввести текст вопроса", "Обнаружена ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             foreach (var item in AnswerList){
-                if (item == "") MessageBox.Show("Обнаружен пустой вариант ответа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (item == "") { 
+                    MessageBox.Show("Обнаружен пустой вариант ответа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             RefreshAnswerFields();
             if (k == false)
                 return;
-            if (AnsType.SelectedIndex != 2){
-                question.Add(new Question(QuestionTB.Text, (int)PointCount.Value,
-                (int)AnsType.SelectedIndex, CorrectAnswerList, AnswerList));
+            if (IICheck.Checked){
+                if (CorrectAnswerList.Count==1)
+                    question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, 0, CorrectAnswerList, AnswerList));
+                else if (CorrectAnswerList.Count==AnswerList.Count)
+                    question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, CorrectAnswerList));
+                else
+                    question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, 1, CorrectAnswerList, AnswerList));
             }
-            else{
+            else if (AnsType.SelectedIndex != 2)
+                question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, (int)AnsType.SelectedIndex, CorrectAnswerList, AnswerList));
+            else
                 question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, CorrectAnswerList));
-            }
             QuestionTB.Text = "";
             CurQuest++;
             if (CurQuest > (int)QuestCount.Value - 1){
@@ -69,6 +81,7 @@ namespace TESTER
             }
         }
 
+        //Добовляет поле для ввода дополнительного ответа
         public void AddAnswerButton_Click(object sender, EventArgs e){
             Dot = new Point(5, Dot.Y + 25);
             TextBox TB1 = new TextBox() { Size = new Size(500, 20), Location = Dot };
@@ -78,9 +91,19 @@ namespace TESTER
             Panel.Controls.Add(CH1);
             AnsCheck.Add(CH1);
         }
+
+//ДОРОБОТАТЬ...Удаление строки ввода
+        private void RemovAnswerButton_Click(object sender, EventArgs e){
+            if (AnsList.Count >1){
+                Dot = new Point(5, Dot.Y - 25);
+                Panel.Controls.Remove(AnsList[AnsList.Count - 1]);
+                Panel.Controls.Remove(AnsCheck[AnsCheck.Count - 1]);
+            }
+        }
 #endregion
 
 #region SomethingChanged
+        //Обновление комбобокса предметов
         private void Combo_Box_Refresh(){
             SubjectCB.Items.Clear();
             string[] science = Directory.GetDirectories(Environment.CurrentDirectory + "\\TEST\\");
@@ -90,11 +113,12 @@ namespace TESTER
             SubjectCB.Items.Add("Добавить...");
         }
 
+        //Добовление нового придмета
         private void SubjectCB_SelectedIndexChanged(object sender, EventArgs e){
             if (SubjectCB.Text.Equals("Добавить...")){
                 string str;
                 if (InputBox.Input("Добавить", "Название предмета", out str))
-                    if (Directory.Exists(Environment.CurrentDirectory + "\\TEST\\" + str + "\\") == false){
+                    if (!Directory.Exists(Environment.CurrentDirectory + "\\TEST\\" + str + "\\")){
                         Directory.CreateDirectory(Environment.CurrentDirectory + "\\TEST\\" + str + "\\");
                         Combo_Box_Refresh();
                     }
@@ -102,7 +126,8 @@ namespace TESTER
                         MessageBox.Show("Такой предмет уже существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
+        //Автоматическое разделение максимального коллчества баллов(5 - 90%, 4 - 75%, 3 - 60%)
         private void PointMax_ValueChanged(object sender, EventArgs e){
             Point5.Value = (decimal)Math.Round((int)PointMax.Value * 0.9, 0);
             Point4.Value = (decimal)Math.Round((int)PointMax.Value * 0.75, 0);
@@ -111,14 +136,18 @@ namespace TESTER
 #endregion
 
 #region Fields
+        
+        //Делаем неактивными неиспользуемые элементы и делаем видимым поле для ввода вопросов
         void EnableFields(){
             QuestCount.Enabled = AllTime.Enabled = PointMax.Enabled =
                 Point5.Enabled = Point4.Enabled = Point3.Enabled =
                 GoButton.Enabled = SubjectCB.Enabled = TestNameTB.Enabled =
                 false;
-            AddButton.Visible = AddAnswerButton.Visible = Panel.Visible =
+            AddButton.Visible = AddAnswerButton.Visible = Panel.Visible = RemoveAnswerButton.Visible = 
                 true;
         }
+
+        //Скрываем поле для ввода вопросов
         void DisableFields(){
             foreach (var answer in AnsList){
                 Panel.Controls.Remove(answer);
@@ -128,7 +157,7 @@ namespace TESTER
                 Point5.Enabled = Point4.Enabled = Point3.Enabled =
                 GoButton.Enabled = SubjectCB.Enabled = TestNameTB.Enabled =
                 true;
-            AddButton.Visible = AddAnswerButton.Visible = Panel.Visible =
+            AddButton.Visible = AddAnswerButton.Visible = Panel.Visible = RemoveAnswerButton.Visible = 
                 false;
             TestNameTB.Text = "";
         }
@@ -146,13 +175,15 @@ namespace TESTER
         }
 #endregion
 
+        //Считыватель заполненых полей
         public void RefreshAnswerFields(){
             AnswerList = new List<string>();
             CorrectAnswerList = new List<string>();
             foreach (var answer in AnsList){
-                AnswerList.Add(answer.Text);
-                if (AnsCheck[AnsList.IndexOf(answer)].Checked){ 
-                    CorrectAnswerList.Add(answer.Text); 
+                if (answer.Text != ""){
+                    AnswerList.Add(answer.Text);
+                    if (AnsCheck[AnsList.IndexOf(answer)].Checked)
+                        CorrectAnswerList.Add(answer.Text);
                 }
             }
             if (CorrectAnswerList.Count == 0 && AnsList.Count != 0){
@@ -172,10 +203,20 @@ namespace TESTER
             k = true;
         }
 
+        //Сеарелизует тест в XML документ
         private void SerializeInDocument(){
             XML_TEST XmlTest = new XML_TEST((int)QuestCount.Value, (int)PointMax.Value, (int)Point3.Value, 
                 (int)Point4.Value, (int)Point5.Value, (int)AllTime.Value, question);
             XmlTest.Serialize(SubjectCB.Text, TestNameTB.Text);
+        }
+
+
+        private void II_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IICheck.Checked)
+                AnsType.Enabled = false;
+            else
+                AnsType.Enabled = true;
         }
     }
 }

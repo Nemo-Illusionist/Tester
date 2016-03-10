@@ -50,11 +50,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.Panel = new System.Windows.Forms.Panel();
+            this.IICheck = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TestNameTB = new System.Windows.Forms.TextBox();
             this.SubjectCB = new System.Windows.Forms.ComboBox();
+            this.RemoveAnswerButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PointMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point3)).BeginInit();
@@ -77,6 +79,7 @@
             // 
             // label12
             // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Location = new System.Drawing.Point(530, 67);
@@ -87,6 +90,7 @@
             // 
             // label11
             // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Location = new System.Drawing.Point(530, 88);
@@ -97,6 +101,7 @@
             // 
             // label10
             // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Location = new System.Drawing.Point(530, 109);
@@ -121,6 +126,7 @@
             // 
             // Point5
             // 
+            this.Point5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Point5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Point5.Location = new System.Drawing.Point(589, 65);
             this.Point5.Name = "Point5";
@@ -134,6 +140,7 @@
             // 
             // Point3
             // 
+            this.Point3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Point3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Point3.Location = new System.Drawing.Point(589, 107);
             this.Point3.Name = "Point3";
@@ -147,6 +154,7 @@
             // 
             // Point4
             // 
+            this.Point4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Point4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Point4.Location = new System.Drawing.Point(589, 86);
             this.Point4.Name = "Point4";
@@ -160,6 +168,8 @@
             // 
             // GoButton
             // 
+            this.GoButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.GoButton.BackColor = System.Drawing.SystemColors.Control;
             this.GoButton.Location = new System.Drawing.Point(12, 134);
             this.GoButton.Name = "GoButton";
@@ -171,10 +181,11 @@
             // 
             // AddAnswerButton
             // 
+            this.AddAnswerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddAnswerButton.BackColor = System.Drawing.SystemColors.Control;
-            this.AddAnswerButton.Location = new System.Drawing.Point(336, 439);
+            this.AddAnswerButton.Location = new System.Drawing.Point(10, 439);
             this.AddAnswerButton.Name = "AddAnswerButton";
-            this.AddAnswerButton.Size = new System.Drawing.Size(316, 23);
+            this.AddAnswerButton.Size = new System.Drawing.Size(315, 23);
             this.AddAnswerButton.TabIndex = 12;
             this.AddAnswerButton.Text = "Добавить еще ответ";
             this.AddAnswerButton.UseVisualStyleBackColor = false;
@@ -183,11 +194,13 @@
             // 
             // AddButton
             // 
+            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AddButton.BackColor = System.Drawing.SystemColors.Control;
-            this.AddButton.Location = new System.Drawing.Point(12, 439);
+            this.AddButton.Location = new System.Drawing.Point(10, 472);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(318, 23);
-            this.AddButton.TabIndex = 13;
+            this.AddButton.Size = new System.Drawing.Size(640, 23);
+            this.AddButton.TabIndex = 14;
             this.AddButton.Text = "Записать вопрос";
             this.AddButton.UseVisualStyleBackColor = false;
             this.AddButton.Visible = false;
@@ -286,6 +299,7 @@
             // 
             this.AnsType.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.AnsType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AnsType.Enabled = false;
             this.AnsType.FormattingEnabled = true;
             this.AnsType.Items.AddRange(new object[] {
             "Один правильный ответ",
@@ -293,7 +307,7 @@
             "Нет вариантов ответов"});
             this.AnsType.Location = new System.Drawing.Point(105, 37);
             this.AnsType.Name = "AnsType";
-            this.AnsType.Size = new System.Drawing.Size(151, 21);
+            this.AnsType.Size = new System.Drawing.Size(150, 21);
             this.AnsType.TabIndex = 10;
             // 
             // QuestionTB
@@ -326,9 +340,13 @@
             // 
             // Panel
             // 
+            this.Panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Panel.AutoScroll = true;
             this.Panel.BackColor = System.Drawing.Color.Transparent;
             this.Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Panel.Controls.Add(this.IICheck);
             this.Panel.Controls.Add(this.PointCount);
             this.Panel.Controls.Add(this.label8);
             this.Panel.Controls.Add(this.label5);
@@ -342,6 +360,19 @@
             this.Panel.TabIndex = 38;
             this.Panel.Visible = false;
             // 
+            // IICheck
+            // 
+            this.IICheck.AutoSize = true;
+            this.IICheck.Checked = true;
+            this.IICheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.IICheck.Location = new System.Drawing.Point(278, 40);
+            this.IICheck.Name = "IICheck";
+            this.IICheck.Size = new System.Drawing.Size(42, 17);
+            this.IICheck.TabIndex = 12;
+            this.IICheck.Text = "ИИ";
+            this.IICheck.UseVisualStyleBackColor = true;
+            this.IICheck.CheckedChanged += new System.EventHandler(this.II_CheckedChanged);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -354,6 +385,8 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(12, 39);
@@ -364,6 +397,8 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(12, 12);
@@ -374,6 +409,8 @@
             // 
             // TestNameTB
             // 
+            this.TestNameTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TestNameTB.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.TestNameTB.Location = new System.Drawing.Point(153, 36);
             this.TestNameTB.Name = "TestNameTB";
@@ -382,6 +419,8 @@
             // 
             // SubjectCB
             // 
+            this.SubjectCB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SubjectCB.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.SubjectCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SubjectCB.FormattingEnabled = true;
@@ -395,12 +434,25 @@
             this.SubjectCB.TabIndex = 0;
             this.SubjectCB.SelectedIndexChanged += new System.EventHandler(this.SubjectCB_SelectedIndexChanged);
             // 
+            // RemoveAnswerButton
+            // 
+            this.RemoveAnswerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.RemoveAnswerButton.Location = new System.Drawing.Point(337, 439);
+            this.RemoveAnswerButton.Name = "RemoveAnswerButton";
+            this.RemoveAnswerButton.Size = new System.Drawing.Size(315, 23);
+            this.RemoveAnswerButton.TabIndex = 13;
+            this.RemoveAnswerButton.Text = "Удалить ответ";
+            this.RemoveAnswerButton.UseVisualStyleBackColor = false;
+            this.RemoveAnswerButton.Visible = false;
+            this.RemoveAnswerButton.Click += new System.EventHandler(this.RemovAnswerButton_Click);
+            // 
             // TestMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::TESTER.Properties.Resources._65;
-            this.ClientSize = new System.Drawing.Size(664, 471);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(664, 507);
+            this.Controls.Add(this.RemoveAnswerButton);
             this.Controls.Add(this.SubjectCB);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -472,5 +524,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TestNameTB;
         private System.Windows.Forms.ComboBox SubjectCB;
+        private System.Windows.Forms.CheckBox IICheck;
+        private System.Windows.Forms.Button RemoveAnswerButton;
     }
 }
