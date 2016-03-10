@@ -37,26 +37,37 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.God_mode = new System.Windows.Forms.Label();
             this.ID_TextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.FileTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.CheckUpdatesTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.GodModeTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ExitTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.ResultsTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.ViewResultsTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowHelpTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(12, 302);
+            this.label6.Location = new System.Drawing.Point(15, 313);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(489, 25);
+            this.label6.Size = new System.Drawing.Size(485, 14);
             this.label6.TabIndex = 21;
-            this.label6.Text = "© 2015 Компания Физмата. Все авторские права пока отсутствуют.";
+            this.label6.Text = "© 2015-2016 Nemo-Illusionist feat. LinJay. Все авторские права пока отсутствуют";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(12, 203);
+            this.label5.Location = new System.Drawing.Point(12, 218);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 13);
             this.label5.TabIndex = 20;
@@ -68,16 +79,16 @@
             this.Test_CB.FormattingEnabled = true;
             this.Test_CB.Items.AddRange(new object[] {
             "(Сначала выберите предмет)"});
-            this.Test_CB.Location = new System.Drawing.Point(143, 200);
+            this.Test_CB.Location = new System.Drawing.Point(143, 215);
             this.Test_CB.Name = "Test_CB";
             this.Test_CB.Size = new System.Drawing.Size(357, 21);
             this.Test_CB.TabIndex = 5;
             // 
             // StartButton
             // 
-            this.StartButton.Location = new System.Drawing.Point(64, 238);
+            this.StartButton.Location = new System.Drawing.Point(15, 242);
             this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(389, 61);
+            this.StartButton.Size = new System.Drawing.Size(485, 61);
             this.StartButton.TabIndex = 6;
             this.StartButton.Text = "Начать тест!";
             this.StartButton.UseVisualStyleBackColor = true;
@@ -87,7 +98,7 @@
             // 
             this.Subject_CB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Subject_CB.FormattingEnabled = true;
-            this.Subject_CB.Location = new System.Drawing.Point(143, 172);
+            this.Subject_CB.Location = new System.Drawing.Point(143, 187);
             this.Subject_CB.Name = "Subject_CB";
             this.Subject_CB.Size = new System.Drawing.Size(357, 21);
             this.Subject_CB.TabIndex = 4;
@@ -106,7 +117,7 @@
             "МОУ \"Бендерская гимназия №2\"",
             "МОУ \"Бендерский теоретический лицей №1\"",
             "МОУ \"Краснянская СОШ\""});
-            this.EI_CB.Location = new System.Drawing.Point(143, 145);
+            this.EI_CB.Location = new System.Drawing.Point(143, 160);
             this.EI_CB.Name = "EI_CB";
             this.EI_CB.Size = new System.Drawing.Size(357, 21);
             this.EI_CB.Sorted = true;
@@ -115,7 +126,7 @@
             // FIO_TextBox
             // 
             this.FIO_TextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FIO_TextBox.Location = new System.Drawing.Point(143, 93);
+            this.FIO_TextBox.Location = new System.Drawing.Point(143, 108);
             this.FIO_TextBox.Name = "FIO_TextBox";
             this.FIO_TextBox.Size = new System.Drawing.Size(357, 20);
             this.FIO_TextBox.TabIndex = 1;
@@ -124,7 +135,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(12, 175);
+            this.label4.Location = new System.Drawing.Point(12, 190);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(112, 13);
             this.label4.TabIndex = 14;
@@ -134,7 +145,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(12, 148);
+            this.label3.Location = new System.Drawing.Point(12, 163);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 13);
             this.label3.TabIndex = 13;
@@ -144,7 +155,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(12, 95);
+            this.label2.Location = new System.Drawing.Point(12, 110);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 12;
@@ -155,29 +166,16 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 22);
+            this.label1.Location = new System.Drawing.Point(13, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(488, 33);
             this.label1.TabIndex = 11;
             this.label1.Text = "Добро пожаловать в EduQual Test!";
             // 
-            // God_mode
-            // 
-            this.God_mode.AutoSize = true;
-            this.God_mode.BackColor = System.Drawing.Color.Transparent;
-            this.God_mode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.God_mode.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.God_mode.Location = new System.Drawing.Point(437, 308);
-            this.God_mode.Name = "God_mode";
-            this.God_mode.Size = new System.Drawing.Size(67, 13);
-            this.God_mode.TabIndex = 22;
-            this.God_mode.Text = "God\' mode";
-            this.God_mode.Click += new System.EventHandler(this.God_mode_Click);
-            // 
             // ID_TextBox
             // 
             this.ID_TextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ID_TextBox.Location = new System.Drawing.Point(143, 119);
+            this.ID_TextBox.Location = new System.Drawing.Point(143, 134);
             this.ID_TextBox.MaxLength = 16;
             this.ID_TextBox.Name = "ID_TextBox";
             this.ID_TextBox.Size = new System.Drawing.Size(357, 20);
@@ -188,11 +186,104 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(12, 115);
+            this.label7.Location = new System.Drawing.Point(12, 130);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 26);
             this.label7.TabIndex = 24;
             this.label7.Text = "Идентификационный\r\nномер";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileTSM,
+            this.ResultsTSM,
+            this.HelpTSM});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(513, 24);
+            this.menuStrip1.TabIndex = 25;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // FileTSM
+            // 
+            this.FileTSM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CheckUpdatesTSMI,
+            this.GodModeTSMI,
+            this.toolStripSeparator1,
+            this.ExitTSMI});
+            this.FileTSM.Name = "FileTSM";
+            this.FileTSM.Size = new System.Drawing.Size(48, 20);
+            this.FileTSM.Text = "Файл";
+            // 
+            // CheckUpdatesTSMI
+            // 
+            this.CheckUpdatesTSMI.Name = "CheckUpdatesTSMI";
+            this.CheckUpdatesTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.CheckUpdatesTSMI.Size = new System.Drawing.Size(347, 22);
+            this.CheckUpdatesTSMI.Text = "Проверить обновления тестов на сервере";
+            this.CheckUpdatesTSMI.Click += new System.EventHandler(this.CheckUpdatesTSMI_Click);
+            // 
+            // GodModeTSMI
+            // 
+            this.GodModeTSMI.Name = "GodModeTSMI";
+            this.GodModeTSMI.Size = new System.Drawing.Size(347, 22);
+            this.GodModeTSMI.Text = "Режим редактирования тестов";
+            this.GodModeTSMI.Click += new System.EventHandler(this.GodModeTSMI_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(344, 6);
+            // 
+            // ExitTSMI
+            // 
+            this.ExitTSMI.Name = "ExitTSMI";
+            this.ExitTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.ExitTSMI.Size = new System.Drawing.Size(347, 22);
+            this.ExitTSMI.Text = "Закрыть";
+            this.ExitTSMI.Click += new System.EventHandler(this.ExitTSMI_Click);
+            // 
+            // ResultsTSM
+            // 
+            this.ResultsTSM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ViewResultsTSMI});
+            this.ResultsTSM.Name = "ResultsTSM";
+            this.ResultsTSM.Size = new System.Drawing.Size(81, 20);
+            this.ResultsTSM.Text = "Результаты";
+            // 
+            // ViewResultsTSMI
+            // 
+            this.ViewResultsTSMI.Name = "ViewResultsTSMI";
+            this.ViewResultsTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.ViewResultsTSMI.Size = new System.Drawing.Size(276, 22);
+            this.ViewResultsTSMI.Text = "Посмотреть свои результаты";
+            this.ViewResultsTSMI.Click += new System.EventHandler(this.ViewResultsTSMI_Click);
+            // 
+            // HelpTSM
+            // 
+            this.HelpTSM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ShowHelpTSMI,
+            this.AboutTSMI});
+            this.HelpTSM.Name = "HelpTSM";
+            this.HelpTSM.Size = new System.Drawing.Size(65, 20);
+            this.HelpTSM.Text = "Справка";
+            // 
+            // ShowHelpTSMI
+            // 
+            this.ShowHelpTSMI.Name = "ShowHelpTSMI";
+            this.ShowHelpTSMI.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.ShowHelpTSMI.Size = new System.Drawing.Size(191, 22);
+            this.ShowHelpTSMI.Text = "Вызов справки";
+            this.ShowHelpTSMI.Click += new System.EventHandler(this.ShowHelpTSMI_Click);
+            // 
+            // AboutTSMI
+            // 
+            this.AboutTSMI.Name = "AboutTSMI";
+            this.AboutTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F1)));
+            this.AboutTSMI.Size = new System.Drawing.Size(191, 22);
+            this.AboutTSMI.Text = "О программе";
+            this.AboutTSMI.Click += new System.EventHandler(this.AboutTSMI_Click);
             // 
             // RegisterForm
             // 
@@ -203,7 +294,6 @@
             this.ClientSize = new System.Drawing.Size(513, 336);
             this.Controls.Add(this.ID_TextBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.God_mode);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Test_CB);
@@ -215,8 +305,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RegisterForm";
@@ -224,6 +316,8 @@
             this.Text = "Программа тестирования учащихся EduQual Test";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegisterForm_FormClosing);
             this.Load += new System.EventHandler(this.RegisterForm_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,12 +332,22 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label God_mode;
         public System.Windows.Forms.ComboBox Test_CB;
         public System.Windows.Forms.ComboBox Subject_CB;
         public System.Windows.Forms.ComboBox EI_CB;
         public System.Windows.Forms.TextBox FIO_TextBox;
         public System.Windows.Forms.TextBox ID_TextBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem FileTSM;
+        private System.Windows.Forms.ToolStripMenuItem CheckUpdatesTSMI;
+        private System.Windows.Forms.ToolStripMenuItem GodModeTSMI;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem ExitTSMI;
+        private System.Windows.Forms.ToolStripMenuItem ResultsTSM;
+        private System.Windows.Forms.ToolStripMenuItem ViewResultsTSMI;
+        private System.Windows.Forms.ToolStripMenuItem HelpTSM;
+        private System.Windows.Forms.ToolStripMenuItem ShowHelpTSMI;
+        private System.Windows.Forms.ToolStripMenuItem AboutTSMI;
     }
 }

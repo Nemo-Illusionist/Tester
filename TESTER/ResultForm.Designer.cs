@@ -196,7 +196,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ResultForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ResultForm";
+            this.Text = "Тест завершен. Посмотрите результаты!";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ResultForm_FormClosing);
             this.Load += new System.EventHandler(this.ResultForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
