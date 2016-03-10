@@ -75,7 +75,7 @@ namespace TESTER
             CurQuest++;
             if (CurQuest > (int)QuestCount.Value - 1){
                 SerializeInDocument();
-                MessageBox.Show("Готово!");
+                MessageBox.Show("Тест успешно сохранен", "Готово!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DisableFields();
                 CurQuest = 0;
             }
@@ -87,7 +87,8 @@ namespace TESTER
             TextBox TB1 = new TextBox() { Size = new Size(500, 20), Location = Dot };
             Panel.Controls.Add(TB1);
             AnsList.Add(TB1);
-            CheckBox CH1 = new CheckBox() { Size = new Size(90, 17), Location = new Point(Dot.X + 520, Dot.Y), Text = "Правильный" };
+            CheckBox CH1 = new CheckBox() { Size = new Size(90, 17), Location = new Point(Dot.X + 520, Dot.Y), Text = "Правильный",};
+            CH1.CheckedChanged += new EventHandler(CH1_CheckedChanged);
             Panel.Controls.Add(CH1);
             AnsCheck.Add(CH1);
         }
@@ -136,7 +137,6 @@ namespace TESTER
             Point3.Value = (decimal)Math.Round((int)PointMax.Value * 0.60, 0);
         }
 #endregion
-
 #region Fields
         
         //Делаем неактивными неиспользуемые элементы и делаем видимым поле для ввода вопросов
@@ -164,7 +164,6 @@ namespace TESTER
             TestNameTB.Text = "";
         }
 #endregion
-
 #region LoadOrClosing
         private void TestMaker_Load(object sender, EventArgs e){
             Combo_Box_Refresh();
@@ -212,13 +211,35 @@ namespace TESTER
             XmlTest.Serialize(SubjectCB.Text, TestNameTB.Text);
         }
 
-
+        //Автоматическое определение типа ответов
         private void II_CheckedChanged(object sender, EventArgs e)
         {
-            if (IICheck.Checked)
+            if (IICheck.Checked){
                 AnsType.Enabled = false;
+                CH1_CheckedChanged(sender, e);
+            }
             else
                 AnsType.Enabled = true;
+        }
+        private void CH1_CheckedChanged(object sender, EventArgs e)
+        {   
+            byte CheckCount = 0;
+            foreach (var box in AnsCheck)
+            {
+                if(box.Checked) CheckCount++;
+            }
+            if (CheckCount == 1)
+            {
+                AnsType.SelectedIndex = 0;
+                //Вариантов несколько, выделен один - ставим радиобаттон
+            }
+            else
+            {
+                if (AnsCheck.Count == CheckCount) AnsType.SelectedIndex = 2;
+                //Если выделены все варианты, то выводим текстбокс
+                else AnsType.SelectedIndex = 1;
+                //В остальных случаях стоит чекбокс
+            }
         }
     }
 }

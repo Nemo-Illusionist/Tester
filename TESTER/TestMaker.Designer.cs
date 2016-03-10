@@ -366,11 +366,11 @@
             this.IICheck.AutoSize = true;
             this.IICheck.Checked = true;
             this.IICheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.IICheck.Location = new System.Drawing.Point(278, 40);
+            this.IICheck.Location = new System.Drawing.Point(259, 39);
             this.IICheck.Name = "IICheck";
-            this.IICheck.Size = new System.Drawing.Size(42, 17);
+            this.IICheck.Size = new System.Drawing.Size(50, 17);
             this.IICheck.TabIndex = 12;
-            this.IICheck.Text = "ИИ";
+            this.IICheck.Text = "Авто";
             this.IICheck.UseVisualStyleBackColor = true;
             this.IICheck.CheckedChanged += new System.EventHandler(this.II_CheckedChanged);
             // 
