@@ -41,7 +41,9 @@ namespace TESTER
                 AnsList = new List<TextBox>();
                 AnsCheck = new List<CheckBox>();
                 question = new List<Question>();
-                RefreshAnswerFields();
+                Dot = new Point(5, 55);
+                AddAnswerButton_Click(sender, e);
+                //RefreshAnswerFields();
                 AnsType.SelectedIndex = 0;
             }
         }
