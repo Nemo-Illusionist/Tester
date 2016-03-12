@@ -37,6 +37,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
@@ -47,7 +48,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(12, 45);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 20);
+            this.textBox1.Size = new System.Drawing.Size(210, 20);
             this.textBox1.TabIndex = 1;
             // 
             // Ok
@@ -63,7 +64,7 @@
             // Cancel
             // 
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancel.Location = new System.Drawing.Point(123, 83);
+            this.Cancel.Location = new System.Drawing.Point(126, 83);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(96, 23);
             this.Cancel.TabIndex = 3;
@@ -76,8 +77,9 @@
             this.AcceptButton = this.Ok;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TESTER.Properties.Resources.background;
             this.CancelButton = this.Cancel;
-            this.ClientSize = new System.Drawing.Size(231, 118);
+            this.ClientSize = new System.Drawing.Size(234, 117);
             this.ControlBox = false;
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Ok);

@@ -40,7 +40,6 @@
             this.AddAnswerButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.AllTime = new System.Windows.Forms.NumericUpDown();
-            this.QuestCount = new System.Windows.Forms.NumericUpDown();
             this.PointCount = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -51,20 +50,21 @@
             this.label7 = new System.Windows.Forms.Label();
             this.Panel = new System.Windows.Forms.Panel();
             this.IICheck = new System.Windows.Forms.CheckBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TestNameTB = new System.Windows.Forms.TextBox();
             this.SubjectCB = new System.Windows.Forms.ComboBox();
             this.RemoveAnswerButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.QuestCount = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.PointMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AllTime)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.QuestCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PointCount)).BeginInit();
             this.Panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QuestCount)).BeginInit();
             this.SuspendLayout();
             // 
             // label13
@@ -229,24 +229,6 @@
             0,
             0});
             // 
-            // QuestCount
-            // 
-            this.QuestCount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.QuestCount.Location = new System.Drawing.Point(153, 63);
-            this.QuestCount.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.QuestCount.Name = "QuestCount";
-            this.QuestCount.Size = new System.Drawing.Size(63, 20);
-            this.QuestCount.TabIndex = 2;
-            this.QuestCount.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
             // PointCount
             // 
             this.PointCount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -366,23 +348,14 @@
             this.IICheck.AutoSize = true;
             this.IICheck.Checked = true;
             this.IICheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.IICheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.IICheck.Location = new System.Drawing.Point(259, 39);
             this.IICheck.Name = "IICheck";
-            this.IICheck.Size = new System.Drawing.Size(50, 17);
+            this.IICheck.Size = new System.Drawing.Size(48, 17);
             this.IICheck.TabIndex = 12;
-            this.IICheck.Text = "Авто";
+            this.IICheck.Text = "АОТ";
             this.IICheck.UseVisualStyleBackColor = true;
             this.IICheck.CheckedChanged += new System.EventHandler(this.II_CheckedChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(9, 66);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(117, 13);
-            this.label6.TabIndex = 36;
-            this.label6.Text = "Количество вопросов";
             // 
             // label2
             // 
@@ -448,6 +421,34 @@
             this.RemoveAnswerButton.Visible = false;
             this.RemoveAnswerButton.Click += new System.EventHandler(this.RemovAnswerButton_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Location = new System.Drawing.Point(9, 66);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(117, 13);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Количество вопросов";
+            // 
+            // QuestCount
+            // 
+            this.QuestCount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.QuestCount.Location = new System.Drawing.Point(153, 63);
+            this.QuestCount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.QuestCount.Name = "QuestCount";
+            this.QuestCount.Size = new System.Drawing.Size(63, 20);
+            this.QuestCount.TabIndex = 2;
+            this.QuestCount.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
             // TestMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -488,10 +489,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.Point3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AllTime)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.QuestCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PointCount)).EndInit();
             this.Panel.ResumeLayout(false);
             this.Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QuestCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -511,7 +512,6 @@
         private System.Windows.Forms.Button AddAnswerButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.NumericUpDown AllTime;
-        private System.Windows.Forms.NumericUpDown QuestCount;
         private System.Windows.Forms.NumericUpDown PointCount;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
@@ -521,12 +521,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel Panel;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TestNameTB;
         private System.Windows.Forms.ComboBox SubjectCB;
         private System.Windows.Forms.CheckBox IICheck;
         private System.Windows.Forms.Button RemoveAnswerButton;
+        private System.Windows.Forms.NumericUpDown QuestCount;
+        private System.Windows.Forms.Label label6;
     }
 }
