@@ -26,6 +26,9 @@ namespace TESTER
             Markform.QuantityQuestion.Text = "" + QuantityQuestion;
             Markform.Maxpoint.Text = "" + MaxPoint;
             Markform.t = false;
+            Markform.Point5.Maximum = MaxPoint;
+            Markform.Point4.Maximum = MaxPoint;
+            Markform.Point3.Maximum = MaxPoint;
             Markform.Point5.Value = (decimal)Math.Round(MaxPoint * 0.9, 0);
             Markform.Point4.Value = (decimal)Math.Round(MaxPoint * 0.75, 0);
             Markform.Point3.Value = (decimal)Math.Round(MaxPoint * 0.60, 0);
