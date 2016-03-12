@@ -15,35 +15,33 @@ namespace TESTER
 
         //Инициализация глобальных переменных
 #region GlobalVariables
-        RegisterForm RegisterForm;
-        List<TextBox> AnsList = new List<TextBox>();
-        List<CheckBox> AnsCheck = new List<CheckBox>();
-        Point Dot = new Point(5, 55);
-        public List<string> AnswerList;
-        public List<string> CorrectAnswerList;
-        Int16 CurQuest = 0;
-        public List<Question> question;
+        RegisterForm RegisterForm; //Форма регистрации
+        List<TextBox> AnsList = new List<TextBox>(); //список полей для ввода вариантов ответа
+        Point Dot = new Point(5, 55); // позиция начального полядля ввода
+        List<CheckBox> AnsCheck = new List<CheckBox>(); //список пометок правельных ответов
+        public List<string> AnswerList; //список правельных ответов
+        public List<string> CorrectAnswerList; //список правельных ответов
+        public List<Question> question; // список вопросов
         Boolean k = false;
+        Int32 PointMax;
 #endregion
 
 #region Buttons
 
         //Событие кнопки Далее
         private void GoButton_Click(object sender, EventArgs e){
-            if (SubjectCB.Text.Equals("") || SubjectCB.Text.Equals("Добавить...") || TestNameTB.Text.Equals("") || (int)PointMax.Value == 0 ||
-                (int)Point3.Value == 0 || (int)Point4.Value == 0 || (int)Point5.Value == 0){
+            if (SubjectCB.Text.Equals("") || SubjectCB.Text.Equals("Добавить...") || TestNameTB.Text.Equals("")){
                 MessageBox.Show("Убедитесь в том, что ВСЕ поля заполнены правильно.",
                     "Обнаружена ошибка данных", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else{
-                PointCount.Value = decimal.Round(PointMax.Value / QuestCount.Value);
+                PointCount.Value = decimal.Round(10);
                 EnableFields();
                 AnsList = new List<TextBox>();
                 AnsCheck = new List<CheckBox>();
                 question = new List<Question>();
                 Dot = new Point(5, 55);
                 AddAnswerButton_Click(sender, e);
-                //RefreshAnswerFields();
                 AnsType.SelectedIndex = 0;
             }
         }
@@ -57,11 +55,12 @@ namespace TESTER
             RefreshAnswerFields();
             if (k == false)
                 return;
+            PointMax += (int)PointCount.Value;
             if (IICheck.Checked){
-                if (CorrectAnswerList.Count == 1)
-                    question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, 0, CorrectAnswerList, AnswerList));
-                else if (CorrectAnswerList.Count == AnswerList.Count)
+                if (CorrectAnswerList.Count == AnswerList.Count)
                     question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, CorrectAnswerList));
+                else if (CorrectAnswerList.Count == 1)
+                    question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, 0, CorrectAnswerList, AnswerList));
                 else
                     question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, 1, CorrectAnswerList, AnswerList));
             }
@@ -70,13 +69,6 @@ namespace TESTER
             else
                 question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, CorrectAnswerList));
             QuestionTB.Text = "";
-            CurQuest++;
-            if (CurQuest > (int)QuestCount.Value - 1){
-                SerializeInDocument();
-                MessageBox.Show("Тест успешно сохранен", "Готово!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DisableFields();
-                CurQuest = 0;
-            }
         }
 
         //Добовляет поле для ввода дополнительного ответа
@@ -86,7 +78,7 @@ namespace TESTER
             Panel.Controls.Add(TB1);
             AnsList.Add(TB1);
             CheckBox CH1 = new CheckBox() { Size = new Size(90, 17), Location = new Point(Dot.X + 520, Dot.Y), Text = "Правильный", };
-            //CH1.CheckedChanged += new EventHandler(CH1_CheckedChanged);
+            CH1.CheckedChanged += new EventHandler(CH1_CheckedChanged);
             Panel.Controls.Add(CH1);
             AnsCheck.Add(CH1);
         }
@@ -100,6 +92,15 @@ namespace TESTER
                 Panel.Controls.Remove(AnsCheck[AnsCheck.Count - 1]);
                 AnsCheck.Remove(AnsCheck[AnsCheck.Count - 1]);
             }
+        }
+
+        //Записать тест
+        private void CommitTest_Click(object sender, EventArgs e)
+        {
+            AddButton_Click(null, null);
+            SerializeInDocument();
+            MessageBox.Show("Тест успешно сохранен", "Готово!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DisableFields();
         }
 #endregion
 
@@ -128,22 +129,13 @@ namespace TESTER
                         MessageBox.Show("Такой предмет уже существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        //Автоматическое разделение максимального коллчества баллов(5 - 90%, 4 - 75%, 3 - 60%)
-        private void PointMax_ValueChanged(object sender, EventArgs e)
-        {
-            Point5.Value = (decimal)Math.Round((int)PointMax.Value * 0.9, 0);
-            Point4.Value = (decimal)Math.Round((int)PointMax.Value * 0.75, 0);
-            Point3.Value = (decimal)Math.Round((int)PointMax.Value * 0.60, 0);
-        }
 #endregion
 
 #region Fields
 
         //Делаем неактивными неиспользуемые элементы и делаем видимым поле для ввода вопросов
         void EnableFields(){
-            QuestCount.Enabled = AllTime.Enabled = PointMax.Enabled =
-                Point5.Enabled = Point4.Enabled = Point3.Enabled =
+            AllTime.Enabled =
                 GoButton.Enabled = SubjectCB.Enabled = TestNameTB.Enabled =
                 false;
             AddButton.Visible = AddAnswerButton.Visible = Panel.Visible = RemoveAnswerButton.Visible =
@@ -157,8 +149,7 @@ namespace TESTER
                 Panel.Controls.Remove(answer);
                 Panel.Controls.Remove(AnsCheck[AnsList.IndexOf(answer)]);
             }
-            QuestCount.Enabled = AllTime.Enabled = PointMax.Enabled =
-                Point5.Enabled = Point4.Enabled = Point3.Enabled =
+            AllTime.Enabled =
                 GoButton.Enabled = SubjectCB.Enabled = TestNameTB.Enabled =
                 true;
             AddButton.Visible = AddAnswerButton.Visible = Panel.Visible = RemoveAnswerButton.Visible =
@@ -167,7 +158,7 @@ namespace TESTER
         }
 #endregion
 
-        #region LoadOrClosing
+#region LoadOrClosing
         private void TestMaker_Load(object sender, EventArgs e)
         {
             Combo_Box_Refresh();
@@ -179,11 +170,12 @@ namespace TESTER
             RegisterForm.SubjectCB_Refresh();
             RegisterForm.Show();
         }
-        #endregion
+#endregion
 
         //Считыватель заполненых полей
         public void RefreshAnswerFields(){
             int a = 0;
+            #region проверка наналичее 
             foreach (var check in AnsCheck){
                 if (check.Checked)
                     a++;
@@ -194,9 +186,11 @@ namespace TESTER
                 k = false;
                 return;
             }
+            #endregion
             AnswerList = new List<string>();
             CorrectAnswerList = new List<string>();
             bool Kk = true;
+            #region считыватель ответов
             foreach (var answer in AnsList){
                 if (answer.Text == "" && Kk){
                     Kk = false;
@@ -205,13 +199,13 @@ namespace TESTER
                         return;
                     }
                 }
-                if (answer.Text != "")
-                {
+                if (answer.Text != ""){
                     AnswerList.Add(answer.Text);
                     if (AnsCheck[AnsList.IndexOf(answer)].Checked)
                         CorrectAnswerList.Add(answer.Text);
                 }
             }
+            #endregion
             foreach (var answer in AnsList)
             {
                 Panel.Controls.Remove(answer);
@@ -226,8 +220,10 @@ namespace TESTER
 
         //Сеарелизует тест в XML документ
         private void SerializeInDocument(){
-            XML_TEST XmlTest = new XML_TEST((int)QuestCount.Value, (int)PointMax.Value, (int)Point3.Value,
-                (int)Point4.Value, (int)Point5.Value, (int)AllTime.Value, question);
+            int Point5, Point4, Point3;
+            MarkBox.Mark(question.Count, PointMax, out Point5, out Point4, out Point3);
+            XML_TEST XmlTest = new XML_TEST(question.Count, PointMax, Point3,
+                Point4, Point5, (int)AllTime.Value, question);
             XmlTest.Serialize(SubjectCB.Text, TestNameTB.Text);
         }
 
@@ -235,28 +231,26 @@ namespace TESTER
         private void II_CheckedChanged(object sender, EventArgs e){
             if (IICheck.Checked){
                 AnsType.Enabled = false;
-                //CH1_CheckedChanged(sender, e);
+                CH1_CheckedChanged(sender, e);
             }
             else
                 AnsType.Enabled = true;
         }
 
-        /*private void CH1_CheckedChanged(object sender, EventArgs e){
+        private void CH1_CheckedChanged(object sender, EventArgs e){
             if (IICheck.Checked){
                 byte CheckCount = 0;
-                foreach (var box in AnsCheck){
+                foreach (var box in AnsCheck)
                     if (box.Checked) CheckCount++;
-                }
-                if (CheckCount == 1){
-                    AnsType.SelectedIndex = 0;
-                    //Вариантов несколько, выделен один - ставим радиобаттон
-                }else{
-                    if (AnsCheck.Count == CheckCount) AnsType.SelectedIndex = 2;
-                    //Если выделены все варианты, то выводим текстбокс
-                    else AnsType.SelectedIndex = 1;
-                    //В остальных случаях стоит чекбокс
+                 if (CheckCount == 1)
+                    AnsType.SelectedIndex = 0;//Вариантов несколько, выделен один - ставим радиобаттон
+                else { 
+                    if (AnsCheck.Count == CheckCount)
+                        AnsType.SelectedIndex = 2;//Если выделены все варианты, то выводим текстбокс
+                    else
+                        AnsType.SelectedIndex = 1;//В остальных случаях стоит чекбокс
                 }
             }
-        }*/
+        }
     }
 }
