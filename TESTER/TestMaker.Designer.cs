@@ -47,7 +47,7 @@
             this.SubjectCB = new System.Windows.Forms.ComboBox();
             this.RemoveAnswerButton = new System.Windows.Forms.Button();
             this.AllTime = new System.Windows.Forms.NumericUpDown();
-            this.CommitTest = new System.Windows.Forms.Button();
+            this.CommitTestButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PointCount)).BeginInit();
             this.Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AllTime)).BeginInit();
@@ -308,15 +308,16 @@
             0,
             0});
             // 
-            // CommitTest
+            // CommitTestButton
             // 
-            this.CommitTest.Location = new System.Drawing.Point(12, 418);
-            this.CommitTest.Name = "CommitTest";
-            this.CommitTest.Size = new System.Drawing.Size(640, 23);
-            this.CommitTest.TabIndex = 40;
-            this.CommitTest.Text = "button1";
-            this.CommitTest.UseVisualStyleBackColor = true;
-            this.CommitTest.Click += new System.EventHandler(this.CommitTest_Click);
+            this.CommitTestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CommitTestButton.Location = new System.Drawing.Point(12, 418);
+            this.CommitTestButton.Name = "CommitTestButton";
+            this.CommitTestButton.Size = new System.Drawing.Size(640, 40);
+            this.CommitTestButton.TabIndex = 40;
+            this.CommitTestButton.Text = "Записать вопрос \r\nи сахронить тест";
+            this.CommitTestButton.UseVisualStyleBackColor = true;
+            this.CommitTestButton.Click += new System.EventHandler(this.CommitTestButton_Click);
             // 
             // TestMaker
             // 
@@ -324,7 +325,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(664, 462);
-            this.Controls.Add(this.CommitTest);
+            this.Controls.Add(this.CommitTestButton);
             this.Controls.Add(this.RemoveAnswerButton);
             this.Controls.Add(this.SubjectCB);
             this.Controls.Add(this.GoButton);
@@ -372,7 +373,7 @@
         private System.Windows.Forms.ComboBox SubjectCB;
         private System.Windows.Forms.CheckBox IICheck;
         private System.Windows.Forms.Button RemoveAnswerButton;
-        private System.Windows.Forms.Button CommitTest;
+        private System.Windows.Forms.Button CommitTestButton;
         private System.Windows.Forms.NumericUpDown AllTime;
     }
 }

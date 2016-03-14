@@ -12,7 +12,6 @@ namespace TESTER
         static XmlSerializer formatter = new XmlSerializer(typeof(XML_TEST));
         public string Science { get; set;} //Название предмета
         public string Theme { get; set;} //Название теста
-        public int QuantityQuestion { get; set; } //Количество вопросов
         public int MaxPoint { get; set; } //Всего баллов
         public int Point5 { get; set; } //Баллов на 5
         public int Point4 { get; set; } //Баллов на 4
@@ -22,15 +21,13 @@ namespace TESTER
 
         public XML_TEST() { }
 
-        /// <param name="QuantityQuestion">Количество вопросов в тесте</param>
         /// <param name="MaxPoint">Максимальный балл за тест</param>
         /// <param name="Point3">Минимальное количество баллов на 3</param>
         /// <param name="Point4">Минимальное количество баллов на 4</param>
         /// <param name="Point5">Винимальное количество баллов на 5</param>
         /// <param name="Time">Общее время на тест</param>
         /// <param name="question">Массив вопросов</param>
-        public XML_TEST(int QuantityQuestion, int MaxPoint, int Point3, int Point4, int Point5, int Time, List<Question> question){
-            this.QuantityQuestion = QuantityQuestion;
+        public XML_TEST(int MaxPoint, int Point3, int Point4, int Point5, int Time, List<Question> question){
             this.MaxPoint = MaxPoint;
             this.Point3 = Point3;
             this.Point4 = Point4;
@@ -62,7 +59,6 @@ namespace TESTER
         {
             using (FileStream fs = new FileStream("TEST\\" + NameFolder + "\\" + NameFile + ".xml", FileMode.OpenOrCreate)){
                 XML_TEST Test = (XML_TEST)formatter.Deserialize(fs);
-                QuantityQuestion = Test.QuantityQuestion;
                 MaxPoint = Test.MaxPoint;
                 Point5 = Test.Point5;
                 Point4 = Test.Point4;

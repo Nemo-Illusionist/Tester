@@ -16,24 +16,25 @@ namespace TESTER
 
         //Инициализация глобальных переменных
 #region GlobalVariables
-        RegisterForm RegisterForm;
-        ResultForm ResultForm;
-        TextBox AnsTB;
-        Label QuestionLabel = new Label(){
+        RegisterForm RegisterForm; //форма регистрации  
+        ResultForm ResultForm; //форма рещультатов
+
+        Label QuestionLabel = new Label(){ //поле для вопроса
             Size = new Size(750, 80),
             Location = new Point(5, 15),
             Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right,
             Font = new Font("Tahoma", 12.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(204)))
         };
-        List<RadioButton> AnsRB = new List<RadioButton>();
-        List<CheckBox> AnsCB = new List<CheckBox>();
-        List<Question> question;
+        TextBox AnsTB; //текстбокс для ответа
+        List<RadioButton> AnsRB = new List<RadioButton>(); //радиобатоны ответов
+        List<CheckBox> AnsCB = new List<CheckBox>();//чекбоксы ответов
+        List<Question> question; //список вопросов
         List<string> AnswersList = new List<string>();
         string CurrentAnswer;
-        int K = 0;
+        int K = 0; // номер вопроса
         int type;
-        public object sender { get; set; }
-        public EventArgs e { get; set; }
+        /*public object sender { get; set; }
+        public EventArgs e { get; set; }*/
 #endregion
 
         //Загрузка формы

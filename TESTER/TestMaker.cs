@@ -79,6 +79,7 @@ namespace TESTER
             AnsList.Add(TB1);
             CheckBox CH1 = new CheckBox() { Size = new Size(90, 17), Location = new Point(Dot.X + 520, Dot.Y), Text = "Правильный", };
             CH1.CheckedChanged += new EventHandler(CH1_CheckedChanged);
+            CH1_CheckedChanged(sender, e);
             Panel.Controls.Add(CH1);
             AnsCheck.Add(CH1);
         }
@@ -95,7 +96,7 @@ namespace TESTER
         }
 
         //Записать тест
-        private void CommitTest_Click(object sender, EventArgs e)
+        private void CommitTestButton_Click(object sender, EventArgs e)
         {
             AddButton_Click(null, null);
             SerializeInDocument();
@@ -137,15 +138,14 @@ namespace TESTER
         void EnableFields(){
             AllTime.Enabled =
                 GoButton.Enabled = SubjectCB.Enabled = TestNameTB.Enabled =
-                false;
+                 false;
             AddButton.Visible = AddAnswerButton.Visible = Panel.Visible = RemoveAnswerButton.Visible =
-                true;
+                CommitTestButton.Visible = true;
         }
 
         //Скрываем поле для ввода вопросов
         void DisableFields(){
-            foreach (var answer in AnsList)
-            {
+            foreach (var answer in AnsList){
                 Panel.Controls.Remove(answer);
                 Panel.Controls.Remove(AnsCheck[AnsList.IndexOf(answer)]);
             }
@@ -153,7 +153,7 @@ namespace TESTER
                 GoButton.Enabled = SubjectCB.Enabled = TestNameTB.Enabled =
                 true;
             AddButton.Visible = AddAnswerButton.Visible = Panel.Visible = RemoveAnswerButton.Visible =
-                false;
+                CommitTestButton.Visible = false;
             TestNameTB.Text = "";
         }
 #endregion
@@ -222,7 +222,7 @@ namespace TESTER
         private void SerializeInDocument(){
             int Point5, Point4, Point3;
             MarkBox.Mark(question.Count, PointMax, out Point5, out Point4, out Point3);
-            XML_TEST XmlTest = new XML_TEST(question.Count, PointMax, Point3,
+            XML_TEST XmlTest = new XML_TEST(PointMax, Point3,
                 Point4, Point5, (int)AllTime.Value, question);
             XmlTest.Serialize(SubjectCB.Text, TestNameTB.Text);
         }
@@ -237,19 +237,20 @@ namespace TESTER
                 AnsType.Enabled = true;
         }
 
+
         private void CH1_CheckedChanged(object sender, EventArgs e){
             if (IICheck.Checked){
                 byte CheckCount = 0;
                 foreach (var box in AnsCheck)
                     if (box.Checked) CheckCount++;
-                 if (CheckCount == 1)
+                if (CheckCount == 0)
+                    AnsType.SelectedIndex = -1;//Если не выбран ни один вариант ответа, то комбобокс пустой
+                else if (CheckCount == AnsCheck.Count)
+                    AnsType.SelectedIndex = 2;//Если выделены все варианты, то выводим текстбокс
+                else if (CheckCount == 1)
                     AnsType.SelectedIndex = 0;//Вариантов несколько, выделен один - ставим радиобаттон
-                else { 
-                    if (AnsCheck.Count == CheckCount)
-                        AnsType.SelectedIndex = 2;//Если выделены все варианты, то выводим текстбокс
-                    else
-                        AnsType.SelectedIndex = 1;//В остальных случаях стоит чекбокс
-                }
+                else
+                        AnsType.SelectedIndex = 1;//В остальных случаях стоит чекбокс    
             }
         }
     }
