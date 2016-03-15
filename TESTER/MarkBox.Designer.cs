@@ -48,72 +48,74 @@
             // 
             // Ok
             // 
-            this.Ok.Location = new System.Drawing.Point(12, 205);
+            this.Ok.Location = new System.Drawing.Point(12, 155);
             this.Ok.Name = "Ok";
-            this.Ok.Size = new System.Drawing.Size(163, 25);
+            this.Ok.Size = new System.Drawing.Size(230, 25);
             this.Ok.TabIndex = 0;
-            this.Ok.Text = "Сохронить";
+            this.Ok.Text = "Сохранить";
             this.Ok.UseVisualStyleBackColor = true;
             this.Ok.Click += new System.EventHandler(this.Ok_Click);
             // 
             // Point3
             // 
-            this.Point3.Location = new System.Drawing.Point(81, 181);
+            this.Point3.Location = new System.Drawing.Point(108, 129);
             this.Point3.Name = "Point3";
             this.Point3.Size = new System.Drawing.Size(64, 20);
             this.Point3.TabIndex = 1;
             // 
             // Point5
             // 
-            this.Point5.Location = new System.Drawing.Point(81, 129);
+            this.Point5.Location = new System.Drawing.Point(108, 77);
             this.Point5.Name = "Point5";
             this.Point5.Size = new System.Drawing.Size(64, 20);
             this.Point5.TabIndex = 2;
             // 
             // Point4
             // 
-            this.Point4.Location = new System.Drawing.Point(81, 155);
+            this.Point4.Location = new System.Drawing.Point(108, 103);
             this.Point4.Name = "Point4";
             this.Point4.Size = new System.Drawing.Size(64, 20);
             this.Point4.TabIndex = 3;
             // 
             // Maxpoint
             // 
-            this.Maxpoint.AutoSize = true;
             this.Maxpoint.BackColor = System.Drawing.Color.Transparent;
-            this.Maxpoint.Location = new System.Drawing.Point(140, 65);
+            this.Maxpoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Maxpoint.Location = new System.Drawing.Point(207, 35);
             this.Maxpoint.Name = "Maxpoint";
-            this.Maxpoint.Size = new System.Drawing.Size(35, 13);
+            this.Maxpoint.Size = new System.Drawing.Size(35, 15);
             this.Maxpoint.TabIndex = 4;
             this.Maxpoint.Text = "label1";
+            this.Maxpoint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // QuantityQuestion
             // 
-            this.QuantityQuestion.AutoSize = true;
             this.QuantityQuestion.BackColor = System.Drawing.Color.Transparent;
-            this.QuantityQuestion.Location = new System.Drawing.Point(140, 13);
+            this.QuantityQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.QuantityQuestion.Location = new System.Drawing.Point(207, 10);
             this.QuantityQuestion.Name = "QuantityQuestion";
-            this.QuantityQuestion.Size = new System.Drawing.Size(35, 13);
+            this.QuantityQuestion.Size = new System.Drawing.Size(35, 15);
             this.QuantityQuestion.TabIndex = 5;
             this.QuantityQuestion.Text = "label2";
+            this.QuantityQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
             // 
             this.label4.AutoEllipsis = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(12, 45);
+            this.label4.Location = new System.Drawing.Point(9, 35);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 33);
+            this.label4.Size = new System.Drawing.Size(192, 15);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Максимальное \r\nкол-во баллов:";
+            this.label4.Text = "Максимальное количество баллов:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(39, 129);
+            this.label5.Location = new System.Drawing.Point(66, 79);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(13, 13);
             this.label5.TabIndex = 8;
@@ -124,7 +126,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(39, 155);
+            this.label6.Location = new System.Drawing.Point(66, 105);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(13, 13);
             this.label6.TabIndex = 9;
@@ -135,7 +137,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(39, 181);
+            this.label7.Location = new System.Drawing.Point(66, 131);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(13, 13);
             this.label7.TabIndex = 10;
@@ -146,19 +148,19 @@
             this.label3.AutoEllipsis = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(12, 13);
+            this.label3.Location = new System.Drawing.Point(9, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 17);
+            this.label3.Size = new System.Drawing.Size(163, 15);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Кол-во вопросов:\r\n";
+            this.label3.Text = "Количество вопросов:\r\n";
             // 
             // label8
             // 
             this.label8.AutoEllipsis = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Location = new System.Drawing.Point(12, 88);
+            this.label8.Location = new System.Drawing.Point(9, 59);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(163, 29);
+            this.label8.Size = new System.Drawing.Size(192, 15);
             this.label8.TabIndex = 12;
             this.label8.Text = "Баллов надо набрать на оценку:\r\n";
             // 
@@ -167,7 +169,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TESTER.Properties.Resources._65;
-            this.ClientSize = new System.Drawing.Size(187, 242);
+            this.ClientSize = new System.Drawing.Size(254, 192);
             this.ControlBox = false;
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label3);

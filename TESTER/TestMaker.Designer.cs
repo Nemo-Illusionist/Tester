@@ -70,7 +70,7 @@
             // 
             this.AddAnswerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddAnswerButton.BackColor = System.Drawing.SystemColors.Control;
-            this.AddAnswerButton.Location = new System.Drawing.Point(12, 356);
+            this.AddAnswerButton.Location = new System.Drawing.Point(12, 398);
             this.AddAnswerButton.Name = "AddAnswerButton";
             this.AddAnswerButton.Size = new System.Drawing.Size(313, 23);
             this.AddAnswerButton.TabIndex = 12;
@@ -81,12 +81,11 @@
             // 
             // AddButton
             // 
-            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddButton.BackColor = System.Drawing.SystemColors.Control;
-            this.AddButton.Location = new System.Drawing.Point(12, 385);
+            this.AddButton.Location = new System.Drawing.Point(12, 427);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(640, 23);
+            this.AddButton.Size = new System.Drawing.Size(313, 23);
             this.AddButton.TabIndex = 14;
             this.AddButton.Text = "Записать вопрос";
             this.AddButton.UseVisualStyleBackColor = false;
@@ -115,11 +114,12 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Location = new System.Drawing.Point(376, 40);
+            this.label8.Location = new System.Drawing.Point(431, 35);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(159, 13);
+            this.label8.Size = new System.Drawing.Size(105, 26);
             this.label8.TabIndex = 13;
-            this.label8.Text = "Количество баллов на вопрос";
+            this.label8.Text = "Количество баллов\r\nна вопрос";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label5
             // 
@@ -179,7 +179,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(8, 69);
+            this.label7.Location = new System.Drawing.Point(8, 64);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(139, 13);
             this.label7.TabIndex = 39;
@@ -203,7 +203,7 @@
             this.Panel.Controls.Add(this.label3);
             this.Panel.Location = new System.Drawing.Point(12, 125);
             this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(640, 225);
+            this.Panel.Size = new System.Drawing.Size(640, 267);
             this.Panel.TabIndex = 38;
             this.Panel.Visible = false;
             // 
@@ -212,12 +212,12 @@
             this.IICheck.AutoSize = true;
             this.IICheck.Checked = true;
             this.IICheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.IICheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.IICheck.Location = new System.Drawing.Point(259, 39);
+            this.IICheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.IICheck.Location = new System.Drawing.Point(259, 34);
             this.IICheck.Name = "IICheck";
-            this.IICheck.Size = new System.Drawing.Size(48, 17);
+            this.IICheck.Size = new System.Drawing.Size(116, 30);
             this.IICheck.TabIndex = 12;
-            this.IICheck.Text = "АОТ";
+            this.IICheck.Text = "Автоопределение\r\nтипа вопроса";
             this.IICheck.UseVisualStyleBackColor = true;
             this.IICheck.CheckedChanged += new System.EventHandler(this.II_CheckedChanged);
             // 
@@ -227,7 +227,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(8, 38);
+            this.label2.Location = new System.Drawing.Point(8, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 13);
             this.label2.TabIndex = 35;
@@ -276,7 +276,7 @@
             // RemoveAnswerButton
             // 
             this.RemoveAnswerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.RemoveAnswerButton.Location = new System.Drawing.Point(337, 356);
+            this.RemoveAnswerButton.Location = new System.Drawing.Point(337, 398);
             this.RemoveAnswerButton.Name = "RemoveAnswerButton";
             this.RemoveAnswerButton.Size = new System.Drawing.Size(315, 23);
             this.RemoveAnswerButton.TabIndex = 13;
@@ -288,7 +288,8 @@
             // AllTime
             // 
             this.AllTime.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AllTime.Location = new System.Drawing.Point(153, 67);
+            this.AllTime.Enabled = false;
+            this.AllTime.Location = new System.Drawing.Point(153, 62);
             this.AllTime.Maximum = new decimal(new int[] {
             300,
             0,
@@ -310,13 +311,16 @@
             // 
             // CommitTestButton
             // 
+            this.CommitTestButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CommitTestButton.BackColor = System.Drawing.SystemColors.Control;
             this.CommitTestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CommitTestButton.Location = new System.Drawing.Point(12, 418);
+            this.CommitTestButton.Location = new System.Drawing.Point(337, 427);
             this.CommitTestButton.Name = "CommitTestButton";
-            this.CommitTestButton.Size = new System.Drawing.Size(640, 40);
+            this.CommitTestButton.Size = new System.Drawing.Size(315, 23);
             this.CommitTestButton.TabIndex = 40;
-            this.CommitTestButton.Text = "Записать вопрос \r\nи сахронить тест";
-            this.CommitTestButton.UseVisualStyleBackColor = true;
+            this.CommitTestButton.Text = "Записать вопрос и сохранить тест";
+            this.CommitTestButton.UseVisualStyleBackColor = false;
+            this.CommitTestButton.Visible = false;
             this.CommitTestButton.Click += new System.EventHandler(this.CommitTestButton_Click);
             // 
             // TestMaker
@@ -324,7 +328,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(664, 462);
+            this.ClientSize = new System.Drawing.Size(664, 459);
             this.Controls.Add(this.CommitTestButton);
             this.Controls.Add(this.RemoveAnswerButton);
             this.Controls.Add(this.SubjectCB);

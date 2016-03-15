@@ -92,6 +92,22 @@ namespace TESTER
         /// <param name="EI">Учебное завидение</param>
         /// <param name="Science">Предмет</param>
         /// <param name="Theme">Название теста</param>
+        public XML_USER(long ID, string FIO, string EI, string Science, string Theme)
+        {
+            this.ID = ID;
+            this.FIO = FIO;
+            this.EI = EI;
+            this.Science = Science;
+            this.Theme = Theme;
+            Questions = new List<Question>();
+            Point = 0;
+        }
+
+        /// <param name="ID">Индификационный номер</param>
+        /// <param name="FIO">Фамилия Имя Очество</param>
+        /// <param name="EI">Учебное завидение</param>
+        /// <param name="Science">Предмет</param>
+        /// <param name="Theme">Название теста</param>
         /// <param name="Point">Наброно баллов</param>
         /// <param name="Mark">Оценка</param>
         /// <param name="Time">Время прохождения</param>
@@ -110,9 +126,29 @@ namespace TESTER
         /// <summary>
         /// Сериализует объект в XML c именем ID_Science_Theme
         /// </summary>
-        public void Serialize(){
-            //int k = Directory.GetFiles(Environment.CurrentDirectory + "\\UserTest\\").Length + 1;
-            using (FileStream fs = new FileStream("UserTest\\" + ID + "_" + Science + "_" + Theme +".xml", FileMode.OpenOrCreate)){
+        public void Serialize(){  
+            string path = ID + "_" + Science + "_" + Theme;
+            string s = path;
+            int k = 0;
+            while (true){
+                int l = k;
+                string[] Files = Directory.GetFiles(Environment.CurrentDirectory + "\\UserTest\\");
+                foreach (var file in Files){
+                    if (k == 0 && file == Environment.CurrentDirectory + "\\UserTest\\" + path + ".xml"){
+                        s += "(" + k + ")";
+                        k++;
+                        break;
+                    }
+                    if (file == Environment.CurrentDirectory + "\\UserTest\\" + s + ".xml" && k != 0){
+                        s = path + "(" + k + ")";
+                        k++;
+                        break;
+                    }
+                }
+                if (l == k)
+                    break;
+            }
+            using (FileStream fs = new FileStream("UserTest\\" + s +".xml", FileMode.OpenOrCreate)){
                 formatter.Serialize(fs, this);
             }
         }

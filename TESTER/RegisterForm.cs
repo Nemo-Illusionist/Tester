@@ -9,7 +9,7 @@ namespace TESTER
 
         public RegisterForm(){
             InitializeComponent();
-            QuestionForm = new QuestionForm(this);
+            QuestionForm = new QuestionForm();
         }
 
         QuestionForm QuestionForm;
@@ -47,18 +47,20 @@ namespace TESTER
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (EI_CB.SelectedIndex < 0 || Subject_CB.SelectedIndex < 0 || Test_CB.SelectedIndex < 0 || ID_TextBox.Text.Length<1){
+            if (EI_CB.SelectedIndex < 0 || Subject_CB.SelectedIndex < 0 || Test_CB.SelectedIndex < 0 || ID_TextBox.TextLength<1){
                 MessageBox.Show("Вы заполнили не все поля.", "Обнаружена ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             this.Hide();
+            QuestionForm.xmlUser = new XML_USER(long.Parse(ID_TextBox.Text), FIO_TextBox.Text, EI_CB.Text, Subject_CB.Text,
+                Test_CB.Text);
             QuestionForm.Text = "["+ID_TextBox.Text+"] "+Test_CB.Text;
             QuestionForm.Show();
         }
 
-        //Режим Бога
+        //Режим Бога 
         private void GodModeTSMI_Click(object sender, EventArgs e){
-            string s;
+            /*string s;
             if (InputBox.InputPassword("Режим Бога", "Введите пожалуйста пароль(God)", out s))
             {
                 if (s.Equals("God"))
@@ -69,7 +71,10 @@ namespace TESTER
                 }
                 else
                     MessageBox.Show("Неверный пароль");
-            }
+            }*/
+            TestMaker = new TestMaker(this);
+            TestMaker.Show();
+            this.Hide();
         }
 
         //Загрузка формы

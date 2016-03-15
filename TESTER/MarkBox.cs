@@ -16,6 +16,7 @@ namespace TESTER
         Int32 P5, P4, P3;
         Boolean t;
 
+
         /// <param name="QuantityQuestion">кол-во вопросов</param>
         /// <param name="MaxPoint">максимально баллов</param>
         /// <param name="Point5">баллов на 5</param>
