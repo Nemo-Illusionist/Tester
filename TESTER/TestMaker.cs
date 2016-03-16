@@ -62,11 +62,13 @@ namespace TESTER
                 else
                     question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, 1, CorrectAnswerList, AnswerList));
             }
-            else*/ if (AnsType.SelectedIndex != 2)
-                question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, (int)AnsType.SelectedIndex, CorrectAnswerList, AnswerList));
+            else*/
+            if (AnsType.SelectedIndex != 2)
+                question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, AnsType.SelectedIndex, CorrectAnswerList, AnswerList));
             else
                 question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, CorrectAnswerList));
             QuestionTB.Text = "";
+            AddAnswerButton_Click(null, null);
         }
 
         //Добовляет поле для ввода дополнительного ответа
@@ -96,7 +98,7 @@ namespace TESTER
         //Записать тест
         private void CommitTestButton_Click(object sender, EventArgs e)
         {
-            AddButton_Click(null, null);
+            AddButton_Click(sender, e);
             SerializeInDocument();
             MessageBox.Show("Тест успешно сохранен", "Готово!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DisableFields();
@@ -119,7 +121,7 @@ namespace TESTER
         private void SubjectCB_SelectedIndexChanged(object sender, EventArgs e){
             if (SubjectCB.Text.Equals("Добавить...")){
                 string str;
-                if (InputBox.Input("Добавить", "Название предмета", out str))
+                if (InputBox.Input("Добавить", "Название предмета", false, out str))
                     if (!Directory.Exists(Environment.CurrentDirectory + "\\TEST\\" + str + "\\")){
                         Directory.CreateDirectory(Environment.CurrentDirectory + "\\TEST\\" + str + "\\");
                         Combo_Box_Refresh();
@@ -170,37 +172,32 @@ namespace TESTER
         }
         #endregion
 
-        //проверка наличия хотя бы одного выброного ответа
-        public bool lol(){
+        //Проверка наличия хотя бы одного выбранного ответа
+        public bool AnySelected(){
             int a = 0;
-            foreach (var check in AnsCheck)
-            {
+            foreach (var check in AnsCheck){
                 if (check.Checked)
                     a++;
             }
-            if (a == 0)
-            {
+            if (a == 0){
                 MessageBox.Show("Хотя бы один из предложенных Вами вариантов ответов должен быть отмечен как правильный",
                     "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
 
-        //Считыватель заполненых полей
-        public bool RefreshAnswerFields(){
-            if (!lol())
-                return false;
+        //Считывает ответы
+        public bool IsVerifiedAnswers(){
             AnswerList = new List<string>();
             CorrectAnswerList = new List<string>();
             bool Kk = true;
-            #region считыватель ответов
             foreach (var answer in AnsList){
                 if (answer.Text == "" && Kk){
                     Kk = false;
-                    if (TrueFalseBox.TrueFalse("Ошибка", "Обнаружен пустой вариант ответа, заполнить?")) { 
-                        return false;
-                    }
+                    if (MessageBox.Show("Ошибка", "Обнаружен пустой вариант ответа, заполнить?", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                        return true;
                 }
                 if (answer.Text != ""){
                     AnswerList.Add(answer.Text);
@@ -208,7 +205,15 @@ namespace TESTER
                         CorrectAnswerList.Add(answer.Text);
                 }
             }
-            #endregion
+            return false;
+        }
+
+        //Считыватель заполненых полей
+        public bool RefreshAnswerFields(){
+            if (AnySelected())
+                return false;
+            if (IsVerifiedAnswers())
+                return false;
             foreach (var answer in AnsList){
                 Panel.Controls.Remove(answer);
                 Panel.Controls.Remove(AnsCheck[AnsList.IndexOf(answer)]);
@@ -216,7 +221,6 @@ namespace TESTER
             AnsList.Clear();
             AnsCheck.Clear();
             Dot = new Point(5, 55);
-            AddAnswerButton_Click(null, null);
             return true;
         }
 
@@ -253,7 +257,7 @@ namespace TESTER
                 else if (CheckCount == 1)
                     AnsType.SelectedIndex = 0;//Вариантов несколько, выделен один - ставим радиобаттон
                 else
-                        AnsType.SelectedIndex = 1;//В остальных случаях стоит чекбокс    
+                    AnsType.SelectedIndex = 1;//В остальных случаях стоит чекбокс    
             }
         }
     }

@@ -14,24 +14,14 @@ namespace TESTER
 
         /// <param name="IBhead">заголовок формы</param>
         /// <param name="IBlabel">текст, который будет отображен в lable1</param>
+        /// <param name="Pass">Если true - то символы в поле ввода заменяются звездочками</param>
         /// <param name="s">значение введенное в текстовое поле, вернется из метода</param>
-        public static bool Input(String IBhead, String IBlabel, out String s){
+        public static bool Input(String IBhead, String IBlabel, bool Pass, out String s){
             InputBox IBform = new InputBox(); // создаём форму
             IBform.Text = IBhead; // меняем текст заголовка формы
             IBform.label1.Text = IBlabel; // меняем текст метки
-            IBform.ShowDialog(); // показываем форму
-            s = IBform.temp; // возвращаем введнное значение в s
-            return IBform.t;
-        }
-
-        /// <param name="IBhead">заголовок формы</param>
-        /// <param name="IBlabel">текст, который будет отображен в lable1</param>
-        /// <param name="s">значение введенное в текстовое поле, вернется из метода</param>
-        public static bool InputPassword(String IBhead, String IBlabel, out String s){
-            InputBox IBform = new InputBox(); // создаём форму
-            IBform.Text = IBhead; // меняем текст заголовка формы
-            IBform.label1.Text = IBlabel; // меняем текст метки
-            IBform.textBox1.PasswordChar = '*';
+            if (Pass)
+                IBform.textBox1.PasswordChar = '*';//заменяет символы на *
             IBform.ShowDialog(); // показываем форму
             s = IBform.temp; // возвращаем введнное значение в s
             return IBform.t;

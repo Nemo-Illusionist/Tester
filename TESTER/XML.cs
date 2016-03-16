@@ -79,6 +79,7 @@ namespace TESTER
         public string EI { get; set; } //Учебное заведение
         public string Science { get; set; } //Название предмета
         public string Theme { get; set; } //Название теста
+        public int MaxPoint { get; set; } //Максимальное кол-во баллов за тест
         public int Point { get; set; } //Наброно баллов
         public byte Mark { get; set; } //Оценка
         public int Time { get; set; } //Время прохождения теста
@@ -128,7 +129,7 @@ namespace TESTER
         public void Serialize(){  
             string path = ID + "_" + Science + "_" + Theme;
             string s = path;
-            int k = 0;
+            int k = 1;
             while (true){
                 int l = k;
                 string[] Files = Directory.GetFiles(Environment.CurrentDirectory + "\\UserTest\\");
@@ -159,6 +160,7 @@ namespace TESTER
         public void DeSerialize(string NameFile){
             using (FileStream fs = new FileStream("UserTest\\" + NameFile + ".xml", FileMode.OpenOrCreate)){
                 XML_USER User = (XML_USER)formatter.Deserialize(fs);
+                MaxPoint = User.MaxPoint;
                 ID = User.ID;
                 FIO = User.FIO;
                 EI = User.EI;
@@ -212,5 +214,6 @@ namespace TESTER
             this.Type = 2;
             this.TrueAnswer = TrueAnswer;
         }
+
     }
 }

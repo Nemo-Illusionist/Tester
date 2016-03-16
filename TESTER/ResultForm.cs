@@ -11,12 +11,60 @@ namespace TESTER
 {
     public partial class ResultForm : Form
     {
-        public ResultForm(QuestionForm Que1){
+        public ResultForm(){
             InitializeComponent();
-            QuestionForm = Que1;
         }
 
-        QuestionForm QuestionForm;
+        XML_USER user;
+
+        public void FillInformation(){
+            InfoLabel.Text = user.FIO + "\n" + user.ID + "\n" + user.EI + "\n" + user.Science + "\n" + user.Theme;
+            YourMarkLabel.Text = user.Mark.ToString();
+            YourPointsLabel.Text = user.Point.ToString();
+            switch (user.Mark){
+                case 2:
+                    TrololoPB.BackgroundImage = Properties.Resources.Point2;
+                    break;
+                case 3:
+                    TrololoPB.BackgroundImage = Properties.Resources.Point3;
+                    break;
+                case 4:
+                    TrololoPB.BackgroundImage = Properties.Resources.Point4;
+                    break;
+                case 5:
+                    TrololoPB.BackgroundImage = Properties.Resources.Point5;
+                    break;
+            }
+        }
+
+        public void FillListView(){
+            foreach (var qq in user.Questions){
+                int k = 0;
+                ListViewItem LVI = new ListViewItem(k.ToString());
+                LVI.SubItems.Add(qq.Point.ToString());
+                if (qq.Answer != null)
+                    LVI.SubItems.Add(string.Join(", ", qq.Answer));
+                else
+                    LVI.SubItems.Add("-");
+                LVI.SubItems.Add(string.Join(", ", qq.TrueAnswer));
+                AnswersView.Items.Add(LVI);
+            }
+        }
+
+        public void MakeGraphic()
+        {
+            Diagram.Series[0].Points[0].YValues[0] = user.Point;
+            Diagram.Series[0].Points[1].YValues[0] = user.MaxPoint - user.Point;
+        }
+
+        public static void ShowForm(XML_USER user){
+            ResultForm resultForm = new ResultForm();
+            resultForm.user = user;
+            resultForm.FillInformation();
+            resultForm.FillListView();
+            resultForm.MakeGraphic();
+            resultForm.ShowDialog();
+        }
 
         private void ResultForm_FormClosing(object sender, FormClosingEventArgs e){
             this.Hide();
@@ -27,5 +75,7 @@ namespace TESTER
         private void ResultForm_Load(object sender, EventArgs e){
 
         }
+
+
     }
 }

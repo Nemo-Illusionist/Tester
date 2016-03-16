@@ -91,12 +91,6 @@
     <Compile Include="TestMaker.Designer.cs">
       <DependentUpon>TestMaker.cs</DependentUpon>
     </Compile>
-    <Compile Include="TrueFalseBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TrueFalseBox.Designer.cs">
-      <DependentUpon>TrueFalseBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="XML.cs" />
     <EmbeddedResource Include="InputBox.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
@@ -120,9 +114,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TestMaker.resx">
       <DependentUpon>TestMaker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TrueFalseBox.resx">
-      <DependentUpon>TrueFalseBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

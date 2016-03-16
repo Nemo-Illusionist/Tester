@@ -7,15 +7,14 @@ namespace TESTER
 {
     public partial class QuestionForm : Form
     {
-        public QuestionForm(/*RegisterForm Form1*/)
+        public QuestionForm()
         {
             InitializeComponent();
-            ResultForm = new ResultForm(this);
         }
 
         //Инициализация глобальных переменных
 #region GlobalVariables
-        ResultForm ResultForm; //форма результатов
+        //ResultForm ResultForm; = new ResultForm//форма результатов
         public XML_USER xmlUser; //XML пользователя
         XML_TEST XmlTest = new XML_TEST(); //XML теста
         Label QuestionLabel = new Label(){ //Поле для вопроса
@@ -111,28 +110,24 @@ namespace TESTER
         //Собирает список пользовательских ответов
         public List<string> UsAnswer(){
             List<string> UserAnswer = new List<string>();
-            switch (XmlTest.Questions[K].Type)
-            {
-                case 0:
-                    {
+            switch (XmlTest.Questions[K].Type){
+                case 0:{
                         foreach (var box in AnsRB)
-                            if (box.Checked)
-                            {
+                            if (box.Checked){
                                 UserAnswer.Add(box.Text);
                                 break;
                             }
                         break;
                     }
-                case 1:
-                    {
+                case 1:{
                         foreach (var box in AnsCB)
                             if (box.Checked)
                                 UserAnswer.Add(box.Text);
                         break;
                     }
-                default:
-                    {
-                        UserAnswer.Add(AnsTB.Text);
+                default:{
+                        if (AnsTB.Text!="")
+                            UserAnswer.Add(AnsTB.Text);
                         break;
                     }
             }
@@ -195,9 +190,11 @@ namespace TESTER
                     xmlUser.Mark = 3;
                 else
                     xmlUser.Mark = 2;
+                xmlUser.MaxPoint = XmlTest.MaxPoint;
                 xmlUser.Serialize();
                 this.Dispose();
-                ResultForm.Show();
+                ResultForm.ShowForm(xmlUser);
+                //ResultForm.Show();
                 return;
             }
             QuestionGB.Controls.Clear();
