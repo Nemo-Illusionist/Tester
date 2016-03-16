@@ -99,7 +99,8 @@ namespace TESTER
         private void CommitTestButton_Click(object sender, EventArgs e)
         {
             AddButton_Click(sender, e);
-            SerializeInDocument();
+            if (!SerializeInDocument())
+                return;
             MessageBox.Show("Тест успешно сохранен", "Готово!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DisableFields();
         }
@@ -225,12 +226,14 @@ namespace TESTER
         }
 
         //Сеарелизует тест в XML документ
-        private void SerializeInDocument(){
+        private bool SerializeInDocument(){
             int Point5, Point4, Point3;
-            MarkBox.Mark(question.Count, PointMax, out Point5, out Point4, out Point3);
+            if(MarkBox.Mark(question.Count, PointMax, out Point5, out Point4, out Point3))
+                return false;
             XML_TEST XmlTest = new XML_TEST(PointMax, Point3,
                 Point4, Point5, (int)AllTime.Value, question);
             XmlTest.Serialize(SubjectCB.Text, TestNameTB.Text);
+            return true;
         }
 
         //Автоматическое определение типа ответов чекбокс

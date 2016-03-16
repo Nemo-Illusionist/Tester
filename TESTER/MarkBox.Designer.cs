@@ -170,7 +170,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TESTER.Properties.Resources._65;
             this.ClientSize = new System.Drawing.Size(254, 192);
-            this.ControlBox = false;
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);

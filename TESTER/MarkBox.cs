@@ -16,12 +16,15 @@ namespace TESTER
         Int32 P5, P4, P3;
         Boolean t;
 
-
+        /// <summary>
+        /// Запускает форму системы оценок
+        /// </summary>
         /// <param name="QuantityQuestion">кол-во вопросов</param>
         /// <param name="MaxPoint">максимально баллов</param>
         /// <param name="Point5">баллов на 5</param>
         /// <param name="Point4">баллов на 4</param>
         /// <param name="Point3">баллов на 3</param>
+        /// <returns>true - если нажата кнопка сохранить</returns>
         public static Boolean Mark(int QuantityQuestion, int MaxPoint, out Int32 Point5, out Int32 Point4, out Int32 Point3){
             MarkBox Markform = new MarkBox();
             Markform.QuantityQuestion.Text = "" + QuantityQuestion;
@@ -42,9 +45,9 @@ namespace TESTER
 
         private void Ok_Click(object sender, EventArgs e)
         {
-            P5 = (int)this.Point5.Value;
-            P4 = (int)this.Point4.Value;
-            P3 = (int)this.Point3.Value;
+            P5 = (int)Point5.Value;
+            P4 = (int)Point4.Value;
+            P3 = (int)Point3.Value;
             t = true;
             this.Close();
         }
