@@ -134,7 +134,11 @@ namespace TESTER
             return UserAnswer;
         }
 
-        //Расчёт баллов за вопрос
+        /// <summary>
+        /// Расчёт баллов за вопрос
+        /// </summary>
+        /// <param name="UserAnswer">Список пользовательских ответов</param>
+        /// <returns></returns>
         public int CalculationPoint(List<string> UserAnswer)
         {
             int point = 0;
@@ -181,24 +185,31 @@ namespace TESTER
             K++;
             if (K == XmlTest.Questions.Count)
             {
-                xmlUser.Point = xmlUser.Point;
-                if (xmlUser.Point >= XmlTest.Point5)
-                    xmlUser.Mark = 5;
-                else if (xmlUser.Point >= XmlTest.Point4)
-                    xmlUser.Mark = 4;
-                else if (xmlUser.Point >= XmlTest.Point3)
-                    xmlUser.Mark = 3;
-                else
-                    xmlUser.Mark = 2;
-                xmlUser.MaxPoint = XmlTest.MaxPoint;
-                xmlUser.Serialize();
+                CreateUserXML();
                 this.Dispose();
                 ResultForm.ShowForm(xmlUser);
-                //ResultForm.Show();
                 return;
             }
             QuestionGB.Controls.Clear();
             Get_Question();
+        }
+
+        /// <summary>
+        /// Собирает XML пользователя
+        /// </summary>
+        public void CreateUserXML()
+        {
+            xmlUser.Point = xmlUser.Point;
+            if (xmlUser.Point >= XmlTest.Point5)
+                xmlUser.Mark = 5;
+            else if (xmlUser.Point >= XmlTest.Point4)
+                xmlUser.Mark = 4;
+            else if (xmlUser.Point >= XmlTest.Point3)
+                xmlUser.Mark = 3;
+            else
+                xmlUser.Mark = 2;
+            xmlUser.MaxPoint = XmlTest.MaxPoint;
+            xmlUser.Serialize();
         }
 
         //Случайное закрытие формы

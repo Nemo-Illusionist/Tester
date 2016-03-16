@@ -16,7 +16,7 @@ namespace TESTER
         public int Point4 { get; set; } //Баллов на 4
         public int Point3 { get; set; } //Баллов на 3
         public int Time { get; set; } //Время на тест
-        public List<Question> Questions { get; set; } //список вопросов
+        public List<Question> Questions { get; set; } //Список вопросов
 
         public XML_TEST() { }
 
@@ -74,22 +74,22 @@ namespace TESTER
     public class XML_USER
     {
         static XmlSerializer formatter = new XmlSerializer(typeof(XML_USER));
-        public long ID { get; set; } //Индификационный номер
-        public string FIO { get; set; } //Фамилия Имя Очество
+        public long ID { get; set; } //Идентификационный номер
+        public string FIO { get; set; } //Фамилия Имя Отчество
         public string EI { get; set; } //Учебное заведение
         public string Science { get; set; } //Название предмета
         public string Theme { get; set; } //Название теста
-        public int MaxPoint { get; set; } //Максимальное кол-во баллов за тест
-        public int Point { get; set; } //Наброно баллов
+        public int MaxPoint { get; set; } //Максимальное количество баллов за тест
+        public int Point { get; set; } //Набрано баллов
         public byte Mark { get; set; } //Оценка
         public int Time { get; set; } //Время прохождения теста
-        public List<Question> Questions { get; set; } //список вопросов
+        public List<Question> Questions { get; set; } //Список вопросов
 
         public XML_USER() { }
 
-        /// <param name="ID">Индификационный номер</param>
-        /// <param name="FIO">Фамилия Имя Очество</param>
-        /// <param name="EI">Учебное завидение</param>
+        /// <param name="ID">Идентификационный номер</param>
+        /// <param name="FIO">Фамилия Имя Отчество</param>
+        /// <param name="EI">Учебное заведение</param>
         /// <param name="Science">Предмет</param>
         /// <param name="Theme">Название теста</param>
         public XML_USER(long ID, string FIO, string EI, string Science, string Theme)
@@ -103,28 +103,8 @@ namespace TESTER
             Point = 0;
         }
 
-        /// <param name="ID">Индификационный номер</param>
-        /// <param name="FIO">Фамилия Имя Очество</param>
-        /// <param name="EI">Учебное завидение</param>
-        /// <param name="Science">Предмет</param>
-        /// <param name="Theme">Название теста</param>
-        /// <param name="Point">Наброно баллов</param>
-        /// <param name="Mark">Оценка</param>
-        /// <param name="Time">Время прохождения</param>
-        /// <param name="Questions">Список вопросов</param>
-        public XML_USER(long ID, string FIO, string EI, string Science, string Theme, int Point, byte Mark, 
-            int Time, List<Question> Questions) {
-                this.ID = ID;
-                this.FIO = FIO;
-                this.EI = EI;
-                this.Science = Science;
-                this.Time = Time;
-                this.Theme = Theme;
-                this.Questions = Questions;
-        }
-
         /// <summary>
-        /// Сериализует объект в XML c именем ID_Science_Theme
+        /// Сериализует объект в XML c именем вида: ID_Science_Theme
         /// </summary>
         public void Serialize(){  
             string path = ID + "_" + Science + "_" + Theme;
@@ -180,18 +160,15 @@ namespace TESTER
     {
         public string question { get; set; } //Вопрос
         public int Type { get; set; } //Тип вопроса
-        public int Point { get; set; } //количество баллов за вопрос || сколько балов набрали за вопрос
+        public int Point { get; set; } //Количество баллов за вопрос || Количество баллов за ответ на вопрос 
         public List<string> TrueAnswer { get; set; } //Правильный ответ
-        public List<string> Answer { get; set; } //Варианты ответа || ваши ответы
+        public List<string> Answer { get; set; } //Варианты ответа || Ответы пользователя
 
         public Question() { }
 
-        /// <summary>
-        /// Создаёт вопро типа один ответ||несколько ответов со следующими пораметрами:
-        /// </summary>
         /// <param name="question">Вопрос </param> 
-        /// <param name="Point">Количетсво баллов за вопрос</param>
-        /// <param name="Type">Тип вопроса(0 - один ответ, 1 - несколько ответов)</param>
+        /// <param name="Point">Количесво баллов за вопрос</param>
+        /// <param name="Type">Тип вопроса</param>
         /// <param name="TrueAnswer">Список правильных ответов</param>
         /// <param name="Answer">Список вариантов ответов</param>
         public Question(string question, int Point, int Type, List<string> TrueAnswer, List<string> Answer){
@@ -203,11 +180,11 @@ namespace TESTER
         }
 
         /// <summary>
-        /// Создаёт вопро типа 2(пустое поле для ввода) со следующими пораметрами:
+        /// Создаёт вопрос типа 2(пустое поле для ввода) со следующими параметрами:
         /// </summary>
         /// <param name="question">Вопрос </param> 
         /// <param name="Point">Количество баллов за вопрос</param>
-        /// <param name="TrueAnswer">Список правельных ответов</param>
+        /// <param name="TrueAnswer">Список правильных ответов</param>
         public Question(string question, int Point, List<string> TrueAnswer){
             this.question = question;
             this.Point = Point;

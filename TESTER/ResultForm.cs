@@ -38,8 +38,8 @@ namespace TESTER
         }
 
         public void FillListView(){
+            int k = 1;
             foreach (var qq in user.Questions){
-                int k = 0;
                 ListViewItem LVI = new ListViewItem(k.ToString());
                 LVI.SubItems.Add(qq.Point.ToString());
                 if (qq.Answer != null)
@@ -48,6 +48,7 @@ namespace TESTER
                     LVI.SubItems.Add("-");
                 LVI.SubItems.Add(string.Join(", ", qq.TrueAnswer));
                 AnswersView.Items.Add(LVI);
+                k++;
             }
         }
 

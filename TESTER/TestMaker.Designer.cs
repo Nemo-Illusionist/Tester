@@ -150,7 +150,7 @@
             this.AnsType.Items.AddRange(new object[] {
             "Один правильный ответ",
             "Несколько правильных ответов",
-            "Нет вариантов ответов"});
+            "Все введенные - правильны"});
             this.AnsType.Location = new System.Drawing.Point(105, 37);
             this.AnsType.Name = "AnsType";
             this.AnsType.Size = new System.Drawing.Size(150, 21);
