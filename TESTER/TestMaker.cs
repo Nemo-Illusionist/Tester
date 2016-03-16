@@ -20,10 +20,9 @@ namespace TESTER
         Point Dot = new Point(5, 55); // позиция начального полядля ввода
         List<CheckBox> AnsCheck = new List<CheckBox>(); //список пометок правельных ответов
         public List<string> AnswerList; //список правельных ответов
-        public List<string> CorrectAnswerList; //список правельных ответов
+        public List<string> CorrectAnswerList; //список вариантов ответов
         public List<Question> question; // список вопросов
-        Boolean k = false;
-        Int32 PointMax;
+        int PointMax; //Максимальное кол-во баллов за тест
 #endregion
 
 #region Buttons
@@ -52,11 +51,10 @@ namespace TESTER
                 MessageBox.Show("Кажется, Вы забыли ввести текст вопроса", "Обнаружена ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            RefreshAnswerFields();
-            if (k == false)
+            if (!RefreshAnswerFields())
                 return;
             PointMax += (int)PointCount.Value;
-            if (IICheck.Checked){
+            /*if (IICheck.Checked){
                 if (CorrectAnswerList.Count == AnswerList.Count)
                     question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, CorrectAnswerList));
                 else if (CorrectAnswerList.Count == 1)
@@ -64,7 +62,7 @@ namespace TESTER
                 else
                     question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, 1, CorrectAnswerList, AnswerList));
             }
-            else if (AnsType.SelectedIndex != 2)
+            else*/ if (AnsType.SelectedIndex != 2)
                 question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, (int)AnsType.SelectedIndex, CorrectAnswerList, AnswerList));
             else
                 question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, CorrectAnswerList));
@@ -170,23 +168,29 @@ namespace TESTER
             RegisterForm.SubjectCB_Refresh();
             RegisterForm.Show();
         }
-#endregion
+        #endregion
 
-        //Считыватель заполненых полей
-        public void RefreshAnswerFields(){
+        //проверка наличия хотя бы одного выброного ответа
+        public bool lol(){
             int a = 0;
-            #region проверка наналичее 
-            foreach (var check in AnsCheck){
+            foreach (var check in AnsCheck)
+            {
                 if (check.Checked)
                     a++;
             }
-            if (a == 0){
+            if (a == 0)
+            {
                 MessageBox.Show("Хотя бы один из предложенных Вами вариантов ответов должен быть отмечен как правильный",
                     "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                k = false;
-                return;
+                return false;
             }
-            #endregion
+            return true;
+        }
+
+        //Считыватель заполненых полей
+        public bool RefreshAnswerFields(){
+            if (!lol())
+                return false;
             AnswerList = new List<string>();
             CorrectAnswerList = new List<string>();
             bool Kk = true;
@@ -195,8 +199,7 @@ namespace TESTER
                 if (answer.Text == "" && Kk){
                     Kk = false;
                     if (TrueFalseBox.TrueFalse("Ошибка", "Обнаружен пустой вариант ответа, заполнить?")) { 
-                        k = false;
-                        return;
+                        return false;
                     }
                 }
                 if (answer.Text != ""){
@@ -206,8 +209,7 @@ namespace TESTER
                 }
             }
             #endregion
-            foreach (var answer in AnsList)
-            {
+            foreach (var answer in AnsList){
                 Panel.Controls.Remove(answer);
                 Panel.Controls.Remove(AnsCheck[AnsList.IndexOf(answer)]);
             }
@@ -215,7 +217,7 @@ namespace TESTER
             AnsCheck.Clear();
             Dot = new Point(5, 55);
             AddAnswerButton_Click(null, null);
-            k = true;
+            return true;
         }
 
         //Сеарелизует тест в XML документ
@@ -227,7 +229,7 @@ namespace TESTER
             XmlTest.Serialize(SubjectCB.Text, TestNameTB.Text);
         }
 
-        //Автоматическое определение типа ответов
+        //Автоматическое определение типа ответов чекбокс
         private void II_CheckedChanged(object sender, EventArgs e){
             if (IICheck.Checked){
                 AnsType.Enabled = false;
@@ -237,8 +239,9 @@ namespace TESTER
                 AnsType.Enabled = true;
         }
 
-
-        private void CH1_CheckedChanged(object sender, EventArgs e){
+        //Автоматический оброботчик выброных ответов список чекбоксов
+        private void CH1_CheckedChanged(object sender, EventArgs e)
+        {
             if (IICheck.Checked){
                 byte CheckCount = 0;
                 foreach (var box in AnsCheck)

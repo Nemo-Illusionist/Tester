@@ -10,13 +10,11 @@ namespace TESTER
         public QuestionForm(/*RegisterForm Form1*/)
         {
             InitializeComponent();
-            //RegisterForm = Form1;
             ResultForm = new ResultForm(this);
         }
 
         //Инициализация глобальных переменных
 #region GlobalVariables
-        //RegisterForm RegisterForm; //форма регистрации  
         ResultForm ResultForm; //форма результатов
         public XML_USER xmlUser; //XML пользователя
         XML_TEST XmlTest = new XML_TEST(); //XML теста
@@ -35,10 +33,6 @@ namespace TESTER
         //Загрузка формы
         private void QuestionForm_Load(object sender, EventArgs e){
             this.WindowState = FormWindowState.Maximized;
-            /*FIO.Text = RegisterForm.FIO_TextBox.Text;
-            EI.Text = RegisterForm.EI_CB.Text;
-            Subject.Text = RegisterForm.Subject_CB.Text;
-            TestName.Text = RegisterForm.Test_CB.Text;*/
             FIO.Text = xmlUser.FIO;
             EI.Text = xmlUser.EI;
             Subject.Text = xmlUser.Science;
@@ -209,7 +203,6 @@ namespace TESTER
             QuestionGB.Controls.Clear();
             Get_Question();
         }
-
 
         //Случайное закрытие формы
         private void QuestionForm_FormClosing(object sender, FormClosingEventArgs e){
