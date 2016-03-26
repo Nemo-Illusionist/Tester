@@ -60,8 +60,8 @@ namespace TESTER
 
         //Режим Бога 
         private void GodModeTSMI_Click(object sender, EventArgs e){
-            /*string s;
-            if (InputBox.InputPassword("Режим Бога", "Введите пожалуйста пароль(God)", true, out s))
+            string s;
+            if (InputBox.Input("Режим Бога", "Введите пожалуйста пароль(God)", true, out s))
             {
                 if (s.Equals("God"))
                 {
@@ -71,10 +71,10 @@ namespace TESTER
                 }
                 else
                     MessageBox.Show("Неверный пароль");
-            }*/
-            TestMaker = new TestMaker(this);
+            }
+            /*TestMaker = new TestMaker(this);
             TestMaker.Show();
-            this.Hide();
+            this.Hide();*/
         }
 
         //Загрузка формы

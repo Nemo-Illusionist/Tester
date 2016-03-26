@@ -205,6 +205,7 @@
             this.Panel.Name = "Panel";
             this.Panel.Size = new System.Drawing.Size(640, 267);
             this.Panel.TabIndex = 38;
+            this.Panel.Tag = "";
             this.Panel.Visible = false;
             // 
             // IICheck

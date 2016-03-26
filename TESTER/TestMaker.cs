@@ -13,7 +13,6 @@ namespace TESTER
             RegisterForm = FormRegister;
         }
 
-        //Инициализация глобальных переменных
 #region GlobalVariables
         RegisterForm RegisterForm; //Форма регистрации
         List<TextBox> AnsList = new List<TextBox>(); //список полей для ввода вариантов ответа
@@ -25,7 +24,7 @@ namespace TESTER
         int PointMax; //Максимальное кол-во баллов за тест
 #endregion
 
-#region Buttons
+#region ButtonsClick
 
         //Событие кнопки Далее
         private void GoButton_Click(object sender, EventArgs e){
@@ -47,34 +46,14 @@ namespace TESTER
 
         //Запись вопроса
         private void AddButton_Click(object sender, EventArgs e){
-            if (QuestionTB.Text == ""){
-                MessageBox.Show("Кажется, Вы забыли ввести текст вопроса", "Обнаружена ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (!RefreshAnswerFields())
-                return;
-            PointMax += (int)PointCount.Value;
-            /*if (IICheck.Checked){
-                if (CorrectAnswerList.Count == AnswerList.Count)
-                    question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, CorrectAnswerList));
-                else if (CorrectAnswerList.Count == 1)
-                    question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, 0, CorrectAnswerList, AnswerList));
-                else
-                    question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, 1, CorrectAnswerList, AnswerList));
-            }
-            else*/
-            if (AnsType.SelectedIndex != 2)
-                question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, AnsType.SelectedIndex, CorrectAnswerList, AnswerList));
-            else
-                question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, CorrectAnswerList));
-            QuestionTB.Text = "";
-            AddAnswerButton_Click(null, null);
+            AddAnswer();
         }
 
         //Добовляет поле для ввода дополнительного ответа
         public void AddAnswerButton_Click(object sender, EventArgs e){
             Dot = new Point(5, Dot.Y + 25);
             TextBox TB1 = new TextBox() { Size = new Size(500, 20), Location = Dot };
+            label3.Text = "Вопрос №" + (question.Count + 1);
             Panel.Controls.Add(TB1);
             AnsList.Add(TB1);
             CheckBox CH1 = new CheckBox() { Size = new Size(90, 17), Location = new Point(Dot.X + 520, Dot.Y), Text = "Правильный", };
@@ -96,10 +75,8 @@ namespace TESTER
         }
 
         //Записать тест
-        private void CommitTestButton_Click(object sender, EventArgs e)
-        {
-            AddButton_Click(sender, e);
-            if (!SerializeInDocument())
+        private void CommitTestButton_Click(object sender, EventArgs e){
+            if (!AddAnswer() || !SerializeInDocument())
                 return;
             MessageBox.Show("Тест успешно сохранен", "Готово!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DisableFields();
@@ -171,7 +148,25 @@ namespace TESTER
             RegisterForm.SubjectCB_Refresh();
             RegisterForm.Show();
         }
-        #endregion
+#endregion
+
+        //Записать вопрос
+        public bool AddAnswer(){
+            if (QuestionTB.Text == ""){
+                MessageBox.Show("Кажется, Вы забыли ввести текст вопроса", "Обнаружена ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!RefreshAnswerFields())
+                return false;
+            PointMax += (int)PointCount.Value;
+            if (AnsType.SelectedIndex != 2)
+                question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, AnsType.SelectedIndex, CorrectAnswerList, AnswerList));
+            else
+                question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, CorrectAnswerList));
+            QuestionTB.Text = "";
+            AddAnswerButton_Click(null, null);
+            return true;
+        }
 
         //Проверка наличия хотя бы одного выбранного ответа
         public bool AnySelected(){
@@ -211,9 +206,7 @@ namespace TESTER
 
         //Считыватель заполненых полей
         public bool RefreshAnswerFields(){
-            if (AnySelected())
-                return false;
-            if (IsVerifiedAnswers())
+            if (AnySelected() || IsVerifiedAnswers())
                 return false;
             foreach (var answer in AnsList){
                 Panel.Controls.Remove(answer);
@@ -228,7 +221,7 @@ namespace TESTER
         //Сеарелизует тест в XML документ
         private bool SerializeInDocument(){
             int Point5, Point4, Point3;
-            if(MarkBox.Mark(question.Count, PointMax, out Point5, out Point4, out Point3))
+            if(!MarkBox.Mark(question.Count, PointMax, out Point5, out Point4, out Point3))
                 return false;
             XML_TEST XmlTest = new XML_TEST(PointMax, Point3,
                 Point4, Point5, (int)AllTime.Value, question);

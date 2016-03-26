@@ -44,7 +44,7 @@ namespace TESTER
             Science = NameFolder;
             Theme = NameFile;
             int k = Directory.GetFiles(Environment.CurrentDirectory + "\\TEST\\" + NameFolder + "\\").Length + 1;
-            using (FileStream fs = new FileStream("TEST\\" + NameFolder + "\\" + k + ". "+ NameFile + ".xml", FileMode.OpenOrCreate)){
+            using (FileStream fs = new FileStream("TEST\\" + NameFolder + "\\" + k + "."+ NameFile + ".xml", FileMode.OpenOrCreate)){
                 formatter.Serialize(fs, this);
             }
         }
