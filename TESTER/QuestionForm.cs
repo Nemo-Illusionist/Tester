@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -27,6 +28,8 @@ namespace TESTER
         List<RadioButton> AnsRB = new List<RadioButton>(); //Радиобатоны ответов
         List<CheckBox> AnsCB = new List<CheckBox>(); //Чекбоксы ответов
         int K = 0; // Номер текущего вопроса
+        Stopwatch stopwatch = new Stopwatch();
+        TimeSpan Time;
 #endregion
 
         //Загрузка формы
@@ -37,6 +40,10 @@ namespace TESTER
             Subject.Text = xmlUser.Science;
             TestName.Text = xmlUser.Theme;
             XmlTest.DeSerialize(Subject.Text, TestName.Text);
+            Time = new TimeSpan(XmlTest.Time / 60, XmlTest.Time % 60, 0);
+            //Time = new TimeSpan(0, 0, 20); // Для дебага таймера
+            Timer.Start();
+            stopwatch.Start();
             Get_Question();
         }
         
@@ -214,11 +221,22 @@ namespace TESTER
 
         //Случайное закрытие формы
         private void QuestionForm_FormClosing(object sender, FormClosingEventArgs e){
-            if (K < XmlTest.Questions.Count && MessageBox.Show(@"Рекомендуется проходить тест до конца, иначе Ваши данные и предыдущие ответы не будут сохранены.\nВы действительно хотите прервать тест?",
-                "Закрытие окна теста", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes){ 
+            if (K < XmlTest.Questions.Count && (MessageBox.Show("Рекомендуется проходить тест до конца, иначе Ваши данные и предыдущие ответы не будут сохранены.\n\nВы действительно хотите прервать тест?",
+                "Закрытие окна теста", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)){ 
                 Application.Exit(); 
             }
             else e.Cancel = true;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e){
+            TimeSpan TS = Time - stopwatch.Elapsed;
+            TimeLabel.Text = String.Format("{0:00}:{1:00}:{2:00}", TS.Hours, TS.Minutes, TS.Seconds);
+            if (TS.Hours == 0 && TS.Minutes == 0 && TS.Seconds == 0){
+                stopwatch.Stop();
+                Timer.Stop();
+                K = XmlTest.Questions.Count - 1;
+                PushButton.PerformClick();
+            }
         }
     }
 }

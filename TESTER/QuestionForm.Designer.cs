@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuestionForm));
             this.QuestionGB = new System.Windows.Forms.GroupBox();
             this.TestName = new System.Windows.Forms.Label();
@@ -38,6 +39,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PushButton = new System.Windows.Forms.Button();
+            this.TimeHintLabel = new System.Windows.Forms.Label();
+            this.TimeLabel = new System.Windows.Forms.Label();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // QuestionGB
@@ -48,7 +52,7 @@
             this.QuestionGB.BackColor = System.Drawing.Color.Transparent;
             this.QuestionGB.Location = new System.Drawing.Point(15, 116);
             this.QuestionGB.Name = "QuestionGB";
-            this.QuestionGB.Size = new System.Drawing.Size(755, 374);
+            this.QuestionGB.Size = new System.Drawing.Size(755, 354);
             this.QuestionGB.TabIndex = 18;
             this.QuestionGB.TabStop = false;
             this.QuestionGB.Text = "Вопрос № ";
@@ -153,6 +157,34 @@
             this.PushButton.UseVisualStyleBackColor = true;
             this.PushButton.Click += new System.EventHandler(this.PushButton_Click);
             // 
+            // TimeHintLabel
+            // 
+            this.TimeHintLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.TimeHintLabel.AutoSize = true;
+            this.TimeHintLabel.BackColor = System.Drawing.Color.Transparent;
+            this.TimeHintLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TimeHintLabel.Location = new System.Drawing.Point(12, 473);
+            this.TimeHintLabel.Name = "TimeHintLabel";
+            this.TimeHintLabel.Size = new System.Drawing.Size(156, 20);
+            this.TimeHintLabel.TabIndex = 0;
+            this.TimeHintLabel.Text = "Осталось времени:";
+            // 
+            // TimeLabel
+            // 
+            this.TimeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.TimeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.TimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TimeLabel.Location = new System.Drawing.Point(506, 473);
+            this.TimeLabel.Name = "TimeLabel";
+            this.TimeLabel.Size = new System.Drawing.Size(264, 20);
+            this.TimeLabel.TabIndex = 20;
+            this.TimeLabel.Text = "23:59:59";
+            this.TimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Timer
+            // 
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
             // QuestionForm
             // 
             this.AcceptButton = this.PushButton;
@@ -161,6 +193,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::TESTER.Properties.Resources._65;
             this.ClientSize = new System.Drawing.Size(784, 562);
+            this.Controls.Add(this.TimeLabel);
+            this.Controls.Add(this.TimeHintLabel);
             this.Controls.Add(this.QuestionGB);
             this.Controls.Add(this.TestName);
             this.Controls.Add(this.Subject);
@@ -194,5 +228,8 @@
         public System.Windows.Forms.Label EI;
         public System.Windows.Forms.Label FIO;
         public System.Windows.Forms.GroupBox QuestionGB;
+        private System.Windows.Forms.Label TimeHintLabel;
+        private System.Windows.Forms.Label TimeLabel;
+        private System.Windows.Forms.Timer Timer;
     }
 }

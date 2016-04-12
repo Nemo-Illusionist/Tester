@@ -289,7 +289,6 @@
             // AllTime
             // 
             this.AllTime.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AllTime.Enabled = false;
             this.AllTime.Location = new System.Drawing.Point(153, 62);
             this.AllTime.Maximum = new decimal(new int[] {
             300,

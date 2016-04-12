@@ -39,7 +39,7 @@ namespace TESTER
                 AnsCheck = new List<CheckBox>();
                 question = new List<Question>();
                 Dot = new Point(5, 55);
-                AddAnswerButton_Click(sender, e);
+                AddAnswerButton.PerformClick();
                 AnsType.SelectedIndex = 0;
             }
         }
@@ -164,7 +164,7 @@ namespace TESTER
             else
                 question.Add(new Question(QuestionTB.Text, (int)PointCount.Value, CorrectAnswerList));
             QuestionTB.Text = "";
-            AddAnswerButton_Click(null, null);
+            AddAnswerButton.PerformClick();
             return true;
         }
 
@@ -191,7 +191,7 @@ namespace TESTER
             foreach (var answer in AnsList){
                 if (answer.Text == "" && Kk){
                     Kk = false;
-                    if (MessageBox.Show("Ошибка", "Обнаружен пустой вариант ответа, заполнить?", MessageBoxButtons.YesNo,
+                    if (MessageBox.Show("Обнаружен пустой вариант ответа. Записать вопрос все равно?", "Ошибка", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
                         return true;
                 }

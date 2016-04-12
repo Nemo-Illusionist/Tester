@@ -74,9 +74,7 @@ namespace TESTER
         }
 
         private void ResultForm_Load(object sender, EventArgs e){
-
+            this.WindowState = FormWindowState.Maximized;
         }
-
-
     }
 }
