@@ -41,9 +41,18 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.Percent4 = new System.Windows.Forms.NumericUpDown();
+            this.Percent5 = new System.Windows.Forms.NumericUpDown();
+            this.Percent3 = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Point3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Percent4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Percent5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Percent3)).BeginInit();
             this.SuspendLayout();
             // 
             // Ok
@@ -58,24 +67,27 @@
             // 
             // Point3
             // 
-            this.Point3.Location = new System.Drawing.Point(108, 129);
+            this.Point3.Location = new System.Drawing.Point(40, 129);
             this.Point3.Name = "Point3";
             this.Point3.Size = new System.Drawing.Size(64, 20);
             this.Point3.TabIndex = 1;
+            this.Point3.ValueChanged += new System.EventHandler(this.Points_ValueChanged);
             // 
             // Point5
             // 
-            this.Point5.Location = new System.Drawing.Point(108, 77);
+            this.Point5.Location = new System.Drawing.Point(40, 77);
             this.Point5.Name = "Point5";
             this.Point5.Size = new System.Drawing.Size(64, 20);
             this.Point5.TabIndex = 2;
+            this.Point5.ValueChanged += new System.EventHandler(this.Points_ValueChanged);
             // 
             // Point4
             // 
-            this.Point4.Location = new System.Drawing.Point(108, 103);
+            this.Point4.Location = new System.Drawing.Point(40, 103);
             this.Point4.Name = "Point4";
             this.Point4.Size = new System.Drawing.Size(64, 20);
             this.Point4.TabIndex = 3;
+            this.Point4.ValueChanged += new System.EventHandler(this.Points_ValueChanged);
             // 
             // Maxpoint
             // 
@@ -115,7 +127,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(66, 79);
+            this.label5.Location = new System.Drawing.Point(14, 79);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(13, 13);
             this.label5.TabIndex = 8;
@@ -126,7 +138,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(66, 105);
+            this.label6.Location = new System.Drawing.Point(14, 105);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(13, 13);
             this.label6.TabIndex = 9;
@@ -137,7 +149,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(66, 131);
+            this.label7.Location = new System.Drawing.Point(14, 131);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(13, 13);
             this.label7.TabIndex = 10;
@@ -164,12 +176,90 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Баллов надо набрать на оценку:\r\n";
             // 
+            // Percent4
+            // 
+            this.Percent4.Location = new System.Drawing.Point(152, 103);
+            this.Percent4.Name = "Percent4";
+            this.Percent4.Size = new System.Drawing.Size(64, 20);
+            this.Percent4.TabIndex = 15;
+            this.Percent4.Value = new decimal(new int[] {
+            75,
+            0,
+            0,
+            0});
+            this.Percent4.ValueChanged += new System.EventHandler(this.Percents_ValueChanged);
+            // 
+            // Percent5
+            // 
+            this.Percent5.Location = new System.Drawing.Point(152, 77);
+            this.Percent5.Name = "Percent5";
+            this.Percent5.Size = new System.Drawing.Size(64, 20);
+            this.Percent5.TabIndex = 14;
+            this.Percent5.Value = new decimal(new int[] {
+            90,
+            0,
+            0,
+            0});
+            this.Percent5.ValueChanged += new System.EventHandler(this.Percents_ValueChanged);
+            // 
+            // Percent3
+            // 
+            this.Percent3.Location = new System.Drawing.Point(152, 129);
+            this.Percent3.Name = "Percent3";
+            this.Percent3.Size = new System.Drawing.Size(64, 20);
+            this.Percent3.TabIndex = 13;
+            this.Percent3.Value = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.Percent3.ValueChanged += new System.EventHandler(this.Percents_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(218, 80);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(20, 16);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "%";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(217, 106);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(20, 16);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "%";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(216, 132);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(20, 16);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "%";
+            // 
             // MarkBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TESTER.Properties.Resources._65;
             this.ClientSize = new System.Drawing.Size(254, 192);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Percent4);
+            this.Controls.Add(this.Percent5);
+            this.Controls.Add(this.Percent3);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
@@ -192,6 +282,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Point3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Percent4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Percent5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Percent3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +304,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown Percent4;
+        private System.Windows.Forms.NumericUpDown Percent5;
+        private System.Windows.Forms.NumericUpDown Percent3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label9;
     }
 }

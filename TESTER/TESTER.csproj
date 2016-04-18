@@ -60,6 +60,12 @@
     <Compile Include="EIEditor.Designer.cs">
       <DependentUpon>EIEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FindResultBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FindResultBox.Designer.cs">
+      <DependentUpon>FindResultBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EIEditor.resx">
       <DependentUpon>EIEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FindResultBox.resx">
+      <DependentUpon>FindResultBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputBox.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
