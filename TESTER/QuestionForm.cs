@@ -81,7 +81,9 @@ namespace TESTER
         void GetTextBox()
         {
             AnsTB = new TextBox(){
-                Size = new Size(QuestionGB.Size.Width - 10, 25),
+                Multiline = true,
+                ScrollBars = ScrollBars.Vertical,
+                Size = new Size(QuestionGB.Size.Width - 10, 250),
                 Location = new Point(5, 100),
                 Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right
             };

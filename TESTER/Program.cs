@@ -17,6 +17,8 @@ namespace TESTER
                 Directory.CreateDirectory(Environment.CurrentDirectory + "\\TEST");
             if (Directory.Exists(Environment.CurrentDirectory + "\\UserTest") == false)
                 Directory.CreateDirectory(Environment.CurrentDirectory + "\\UserTest");
+            if (File.Exists(Environment.CurrentDirectory + "\\EI.txt") == false)
+                File.Create(Environment.CurrentDirectory + "\\EI.txt");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new RegisterForm());

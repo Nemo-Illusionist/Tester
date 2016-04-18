@@ -60,8 +60,8 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(485, 14);
             this.label6.TabIndex = 21;
-            this.label6.Text = "© 2015-2016 Nemo-Illusionist feat. LinJay. Все авторские права пока отсутствуют";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.Text = "© 2015-2016 Nemo-Illusionist feat. LinJay. ";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
@@ -109,14 +109,6 @@
             // 
             this.EI_CB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.EI_CB.FormattingEnabled = true;
-            this.EI_CB.Items.AddRange(new object[] {
-            "ГОУ \"ВИМО ПМР им. А.И. Лебедя\"",
-            "ГОУ \"ПГУ им. Т.Г. Шевченко\"",
-            "ГОУ \"ТМУ\"",
-            "ГОУ \"ТЮИ МВД ПМР\"",
-            "МОУ \"Бендерская гимназия №2\"",
-            "МОУ \"Бендерский теоретический лицей №1\"",
-            "МОУ \"Краснянская СОШ\""});
             this.EI_CB.Location = new System.Drawing.Point(143, 160);
             this.EI_CB.Name = "EI_CB";
             this.EI_CB.Size = new System.Drawing.Size(357, 21);
@@ -230,7 +222,7 @@
             this.GodModeTSMI.Name = "GodModeTSMI";
             this.GodModeTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F2)));
             this.GodModeTSMI.Size = new System.Drawing.Size(347, 22);
-            this.GodModeTSMI.Text = "Режим редактирования тестов";
+            this.GodModeTSMI.Text = "Режим разработчика";
             this.GodModeTSMI.Click += new System.EventHandler(this.GodModeTSMI_Click);
             // 
             // toolStripSeparator1

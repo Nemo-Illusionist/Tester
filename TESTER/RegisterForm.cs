@@ -61,13 +61,40 @@ namespace TESTER
         //Режим Бога 
         private void GodModeTSMI_Click(object sender, EventArgs e){
             string s;
-            if (InputBox.Input("Режим Бога", "Введите пожалуйста пароль(God)", true, out s))
+            int t = DeveloperBox.Input(out s);
+            if (t != 0)
             {
                 if (s.Equals("God"))
                 {
-                    TestMaker = new TestMaker(this);
-                    TestMaker.Show();
-                    this.Hide();
+                    switch (t) {
+                        case 1:{
+                                TestMaker = new TestMaker(this);
+                                TestMaker.Show();
+                                this.Hide();
+                                break;
+                            }
+                        case 2: { break; }
+                        case 3:{
+                            if (EIEditor.Input())
+                            {
+                                EI_CB.Items.Clear();
+                                string[] EducationalInstitutions = File.ReadAllLines(Environment.CurrentDirectory + "\\EI.txt");
+                                EI_CB.Items.AddRange(EducationalInstitutions);
+                            }
+                                
+                                break;
+                            }
+                        case 4: {
+                            if (MessageBox.Show("Вы действительно хотите очистить папку пользовательских тестов?\n"+
+                                "Если вы не сохранили результаты в архив, нажмите \"Нет\", сохраните тесты из папки, и после этого вернитесь сюда",
+                                "Намечается очистка ученических результатов", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes){
+                                    string[] Files = Directory.GetFiles(Environment.CurrentDirectory + "\\UserTest\\");
+                                    foreach(string file in Files)
+                                    File.Delete(file);
+                                    }
+                                    break; 
+                                }
+                    }
                 }
                 else
                     MessageBox.Show("Неверный пароль");
@@ -78,9 +105,27 @@ namespace TESTER
         }
 
         //Загрузка формы
-        private void RegisterForm_Load(object sender, EventArgs e){
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
             FIO_TextBox.Focus();
             SubjectCB_Refresh();
+            /*try
+            {*/
+            string[] EducationalInstitutions = File.ReadAllLines(Environment.CurrentDirectory + "\\EI.txt");
+                EI_CB.Items.AddRange(EducationalInstitutions);
+            /*}
+            catch (Exception)
+            {
+                MessageBox.Show("Список учебных заведений не был загружен.", "Не найден файл EI.txt");
+                EI_CB.Items.AddRange(new string[]{
+                    "ГОУ \"ВИМО ПМР им. А.И. Лебедя\"",
+                    "ГОУ \"ПГУ им. Т.Г. Шевченко\"",
+                    "ГОУ \"ТМУ\"",
+                    "ГОУ \"ТЮИ МВД ПМР\"",
+                    "МОУ \"Бендерская гимназия №2\"",
+                    "МОУ \"Бендерский теоретический лицей №1\""
+            });
+            }*/
         }
 
         //Закрытие формы

@@ -48,6 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeveloperBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeveloperBox.Designer.cs">
+      <DependentUpon>DeveloperBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EIEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EIEditor.Designer.cs">
+      <DependentUpon>EIEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +104,12 @@
       <DependentUpon>TestMaker.cs</DependentUpon>
     </Compile>
     <Compile Include="XML.cs" />
+    <EmbeddedResource Include="DeveloperBox.resx">
+      <DependentUpon>DeveloperBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EIEditor.resx">
+      <DependentUpon>EIEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InputBox.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
     </EmbeddedResource>
