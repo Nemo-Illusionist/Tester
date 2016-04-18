@@ -261,7 +261,7 @@ namespace TESTER
         /// </summary>
         public void Serialize(){  
             string path = ID + "_" + Science + "_" + Theme;
-            string s = path;
+            /*string s = path;
             int k = 1;
             while (true){
                 int l = k;
@@ -280,8 +280,8 @@ namespace TESTER
                 }
                 if (l == k)
                     break;
-            }
-            string FileName = "UserTest\\" + s + ".xml";
+            }*/
+            string FileName = "UserTest\\" + path + ".xml";
 
             #region Получение ключа
             // Вообще говоря, ключ и пароль — разные вещи. Пароль — это текст произвольной длины,

@@ -51,6 +51,15 @@ namespace TESTER
                 MessageBox.Show("Вы заполнили не все поля.", "Обнаружена ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            string[] UserResults = Directory.GetFiles(Environment.CurrentDirectory + "\\UserTest\\");
+            string path = ID_TextBox.Text + "_" + Subject_CB.Text + "_" + Test_CB.Text;
+            foreach (var file in UserResults){
+                if (file == (Environment.CurrentDirectory + "\\UserTest\\" + path + ".xml")){
+                    MessageBox.Show("Повторное выполнение задания запрещено.", "Для вашего ID уже существует результат", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
             this.Hide();
             QuestionForm.xmlUser = new XML_USER(long.Parse(ID_TextBox.Text), FIO_TextBox.Text, EI_CB.Text, Subject_CB.Text,
                 Test_CB.Text);
@@ -152,9 +161,14 @@ namespace TESTER
         }
 
         //Посмотреть свои результаты
-        private void ViewResultsTSMI_Click(object sender, EventArgs e)
-        {
-
+        private void ViewResultsTSMI_Click(object sender, EventArgs e){
+            string s;
+            if (FindResultBox.Input(out s)){
+                XML_USER xmlUser = new XML_USER();
+                xmlUser.DeSerialize(s);
+                ResultForm.ShowForm(xmlUser);
+                this.Hide();
+            }
         }
 
         //Проверить апдейты тестов с сервера

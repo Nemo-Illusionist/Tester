@@ -248,7 +248,6 @@
             // 
             // ViewResultsTSMI
             // 
-            this.ViewResultsTSMI.Enabled = false;
             this.ViewResultsTSMI.Name = "ViewResultsTSMI";
             this.ViewResultsTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
             this.ViewResultsTSMI.Size = new System.Drawing.Size(276, 22);

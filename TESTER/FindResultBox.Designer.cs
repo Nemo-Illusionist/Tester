@@ -28,31 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SearchTB = new System.Windows.Forms.TextBox();
+            this.FoundResultsLV = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // SearchTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(341, 20);
-            this.textBox1.TabIndex = 0;
+            this.SearchTB.Location = new System.Drawing.Point(12, 25);
+            this.SearchTB.Name = "SearchTB";
+            this.SearchTB.Size = new System.Drawing.Size(341, 20);
+            this.SearchTB.TabIndex = 0;
             // 
-            // listView1
+            // FoundResultsLV
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.FoundResultsLV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(12, 54);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(419, 166);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.FoundResultsLV.GridLines = true;
+            this.FoundResultsLV.Location = new System.Drawing.Point(12, 54);
+            this.FoundResultsLV.MultiSelect = false;
+            this.FoundResultsLV.Name = "FoundResultsLV";
+            this.FoundResultsLV.Size = new System.Drawing.Size(419, 166);
+            this.FoundResultsLV.TabIndex = 1;
+            this.FoundResultsLV.UseCompatibleStateImageBehavior = false;
+            this.FoundResultsLV.View = System.Windows.Forms.View.Details;
+            this.FoundResultsLV.ItemActivate += new System.EventHandler(this.FoundResultsLV_ItemActivate);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Найденые Результаты";
+            this.columnHeader1.Width = 392;
             // 
             // label1
             // 
@@ -64,20 +71,15 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Введите ID";
             // 
-            // button1
+            // SearchButton
             // 
-            this.button1.Location = new System.Drawing.Point(359, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(72, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Поиск";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Найденые Результаты";
-            this.columnHeader1.Width = 392;
+            this.SearchButton.Location = new System.Drawing.Point(359, 25);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(72, 23);
+            this.SearchButton.TabIndex = 3;
+            this.SearchButton.Text = "Поиск";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // FindResultBox
             // 
@@ -85,10 +87,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TESTER.Properties.Resources._65;
             this.ClientSize = new System.Drawing.Size(443, 234);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.FoundResultsLV);
+            this.Controls.Add(this.SearchTB);
             this.Name = "FindResultBox";
             this.Text = "FindResultBox";
             this.ResumeLayout(false);
@@ -98,10 +100,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.TextBox SearchTB;
+        private System.Windows.Forms.ListView FoundResultsLV;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }
