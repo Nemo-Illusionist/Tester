@@ -414,10 +414,9 @@ namespace TESTER
                 using (var ms = new MemoryStream())
                 using (var cs = new CryptoStream(f, decryptor, CryptoStreamMode.Read))
                 {
-                    int b;
                     while (true)
                     {
-                        b = cs.ReadByte();
+                        var b = cs.ReadByte();
                         if (b == -1) break;     // Если достигнут конец потока
                         ms.WriteByte((byte)b);
                     }
