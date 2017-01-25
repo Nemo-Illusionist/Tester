@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TESTER", "TESTER\TESTER.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XML", "XMLManager\XML.csproj", "{89E14634-19FB-4D85-8CC8-EB438753CBE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakerModeUI", "MakerModeUI\MakerModeUI.csproj", "{B3BDA187-2745-45AC-8B42-B2103152F0D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{89E14634-19FB-4D85-8CC8-EB438753CBE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89E14634-19FB-4D85-8CC8-EB438753CBE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89E14634-19FB-4D85-8CC8-EB438753CBE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3BDA187-2745-45AC-8B42-B2103152F0D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3BDA187-2745-45AC-8B42-B2103152F0D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3BDA187-2745-45AC-8B42-B2103152F0D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3BDA187-2745-45AC-8B42-B2103152F0D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
