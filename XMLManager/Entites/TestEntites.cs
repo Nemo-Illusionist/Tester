@@ -13,7 +13,7 @@ namespace XML.Entites
         public int Point4 { get; set; } //Баллов на 4
         public int Point3 { get; set; } //Баллов на 3
         public int Time { get; set; } //Время на тест
-        public List<QuestionEntites> Questions { get; set; } //Список вопросов
+        public List<QuestionTestEntites> Questions { get; set; } //Список вопросов
 
         public TestEntites() { }
 
@@ -26,11 +26,11 @@ namespace XML.Entites
         /// <param name="time">Общее время на тест</param>
         /// <param name="question">Массив вопросов</param>
         public TestEntites(string science, string theme, int maxPoint, int point3, int point4, int point5,
-            int time, List<QuestionEntites> question)
+            int time, List<QuestionTestEntites> question)
         {
-            if (string.IsNullOrEmpty(science) || string.IsNullOrEmpty(theme) 
-                || point3 > point4 || point4 > point5 || maxPoint < point5 || time<=0 
-                || question == null || question.Count ==0)
+            if (string.IsNullOrEmpty(science) || string.IsNullOrEmpty(theme)
+                || point3 > point4 || point4 > point5 || maxPoint < point5 || time <= 0
+                || question == null || question.Count == 0)
                 throw new ArgumentNullException();
             Science = science;
             Theme = theme;

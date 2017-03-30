@@ -15,7 +15,7 @@ namespace XML.Entites
         public int Point { get; set; } //Набрано баллов
         public byte Mark { get; set; } //Оценка
         public int Time { get; set; } //Время прохождения теста
-        public List<QuestionEntites> Questions { get; set; } //Список вопросов
+        public List<QuestionTestEntites> Questions { get; set; } //Список вопросов
         public UsersAnswers() { }
 
         /// <param name="id">Идентификационный номер</param>
@@ -33,7 +33,7 @@ namespace XML.Entites
             EI = ei;
             Science = science;
             Theme = theme;
-            Questions = new List<QuestionEntites>();
+            Questions = new List<QuestionTestEntites>();
             Point = Time = Mark = 0;
         }
     }

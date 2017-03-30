@@ -84,10 +84,10 @@ namespace XML
             }
         }
 
-        public T DeSerialize<T>(string path, string fileName)
+        public T DeSerialize<T>(string path)
         {
             T xml;
-            var file = string.Format("{0}{1}.xml", path, fileName);
+            var file = path;
             using (var f = new FileStream(file, FileMode.Open))
             {
                 byte[] salt = new byte[SaltLength];

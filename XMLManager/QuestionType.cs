@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace XML.Entites
+namespace XML
 {
     [Serializable]
     public enum QuestionType

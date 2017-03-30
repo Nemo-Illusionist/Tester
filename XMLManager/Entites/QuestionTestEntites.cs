@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace XML.Entites
 {
     [Serializable]
-    public class QuestionEntites
+    public class QuestionTestEntites
     {
         public string TextQuestion { get; set; } //Вопрос
         public QuestionType Type { get; set; } //Тип вопроса
@@ -12,7 +12,7 @@ namespace XML.Entites
         public List<string> TrueAnswer { get; set; } //Правильные ответы
         public List<string> Answer { get; set; } //Варианты ответа || Ответы пользователя
 
-        public QuestionEntites() { }
+        public QuestionTestEntites() { }
 
         /// <summary>
         /// Создаёт вопрос(ответ) со следующими параметрами:
@@ -22,7 +22,7 @@ namespace XML.Entites
         /// <param name="trueAnswer">Список правильных ответов</param>
         /// <param name="answer">Список вариантов ответов</param>
         /// <param name="type">Тип вопроса</param>
-        public QuestionEntites(string question, int point, List<string> trueAnswer,
+        public QuestionTestEntites(string question, int point, List<string> trueAnswer,
             List<string> answer, QuestionType type)
         {
             if (string.IsNullOrEmpty(question) || point < 0
@@ -42,7 +42,7 @@ namespace XML.Entites
         /// <param name="question">Вопрос </param>
         /// <param name="point">Количесво баллов за вопрос</param>
         /// <param name="trueAnswer">Список правильных ответов</param>
-        public QuestionEntites(string question, int point, List<string> trueAnswer)
+        public QuestionTestEntites(string question, int point, List<string> trueAnswer)
             : this(question, point, trueAnswer, null, QuestionType.NoVariant)
         {
         }
