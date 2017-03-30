@@ -6,26 +6,29 @@ namespace XML.Entites
     [Serializable]
     public class TestEntites
     {
-        public string Science { get; set; } //Название предмета
-        public string Theme { get; set; } //Название теста
-        public int MaxPoint { get; set; } //Всего баллов
-        public int Point5 { get; set; } //Баллов на 5
-        public int Point4 { get; set; } //Баллов на 4
-        public int Point3 { get; set; } //Баллов на 3
-        public int Time { get; set; } //Время на тест
-        public List<QuestionTestEntites> Questions { get; set; } //Список вопросов
+        public string Science { get; set; } 
+        public string Theme { get; set; }
+        public int MaxPoint { get; set; }
+        public int Point5 { get; set; } 
+        public int Point4 { get; set; } 
+        public int Point3 { get; set; }
+        public int Time { get; set; } 
+        public List<QuestionTestEntites> Questions { get; set; } 
 
         public TestEntites() { }
 
-        /// <param name="science">Предмет</param>
+        /// <summary>
+        /// Создаёт тест:
+        /// </summary>
+        /// <param name="science">Придмет</param>
         /// <param name="theme">Название теста</param>
         /// <param name="maxPoint">Максимальный балл за тест</param>
-        /// <param name="point3">Минимальное количество баллов на 3</param>
-        /// <param name="point4">Минимальное количество баллов на 4</param>
         /// <param name="point5">Винимальное количество баллов на 5</param>
+        /// <param name="point4">Минимальное количество баллов на 4</param>
+        /// <param name="point3">Минимальное количество баллов на 3</param>
         /// <param name="time">Общее время на тест</param>
         /// <param name="question">Массив вопросов</param>
-        public TestEntites(string science, string theme, int maxPoint, int point3, int point4, int point5,
+        public TestEntites(string science, string theme, int maxPoint, int point5, int point4, int point3,
             int time, List<QuestionTestEntites> question)
         {
             if (string.IsNullOrEmpty(science) || string.IsNullOrEmpty(theme)

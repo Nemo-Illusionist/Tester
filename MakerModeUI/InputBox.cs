@@ -15,21 +15,23 @@ namespace MakerModeUI
         /// Запускает InputBox
         /// </summary>
         /// <param name="head">заголовок формы</param>
-        /// <param name="label">текст, который будет отображен в lable1</param>
+        /// <param name="label">смысловой текст ввода1</param>
+        /// <param name="text">значение введенное в текстовое поле</param>
         /// <param name="pass">Если true - то символы в поле ввода заменяются звездочками</param>
-        /// <param name="s">значение введенное в текстовое поле, вернется из метода</param>
         /// <returns>false - если нажата кнопка Cancel или поле для ввода пустое</returns>
-        public static bool Input(string head, string label, bool pass, out string s){
+        public static bool Input(string head, string label, ref string text, bool pass = false)
+        {
             var form = new InputBox
             {
                 _t = false,
                 Text = head,
-                label1 = {Text = label}
+                label1 = {Text = label},
+                textBox1 = {Text = text}
             };
             if (pass)
                 form.textBox1.PasswordChar = '*';
             form.ShowDialog(); 
-            s = form._text; 
+            text = form._text; 
             return form._t;
         }
         

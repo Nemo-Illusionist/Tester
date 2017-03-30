@@ -5,9 +5,8 @@ namespace MakerModeUI
 {
     public partial class MarkBox : Form
     {
-        private int _p5, _p4, _p3;
+        private int _p5, _p4, _p3, _mp = 100;
         private bool _t;
-        private int _mp = 100;
 
         public MarkBox()
         {
@@ -33,15 +32,6 @@ namespace MakerModeUI
             Point3.Maximum = Point4.Value;
         }
 
-        /// <summary>
-        /// Запускает форму системы оценок
-        /// </summary>
-        /// <param name="quantityQuestion">Кол-во вопросов</param>
-        /// <param name="maxPoint">Максимально баллов</param>
-        /// <param name="point5">Баллов на 5</param>
-        /// <param name="point4">Баллов на 4</param>
-        /// <param name="point3">Баллов на 3</param>
-        /// <returns>true - если нажата кнопка сохранить</returns>
         public static bool Mark(int quantityQuestion, int maxPoint, out int point5, out int point4, out int point3)
         {
             var markform = new MarkBox

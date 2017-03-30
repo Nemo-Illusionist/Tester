@@ -60,7 +60,7 @@ namespace XML
                 var k = Directory.GetFiles(Environment.CurrentDirectory + path).Length + 1;
                 file = string.Format("{0}{1}.{2}.xml", path, k, fileName);
             }
-            else if (xml.GetType() == typeof(UsersAnswers))
+            else if (xml.GetType() == typeof(UsersAnswersEntities))
             {
                 file = string.Format("{0}{1}.xml", path, fileName);
             }

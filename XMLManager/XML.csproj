@@ -41,10 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entites\QuestionEntites.cs" />
+    <Compile Include="Entites\QuestionTestEntites.cs" />
+    <Compile Include="Entites\AnswerUserEntites.cs" />
     <Compile Include="Entites\QuestionType.cs" />
     <Compile Include="Entites\TestEntites.cs" />
-    <Compile Include="Entites\UsersAnswers.cs" />
+    <Compile Include="Entites\UsersAnswersEntities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XMLManager.cs" />
   </ItemGroup>
